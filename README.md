@@ -115,6 +115,17 @@ After running all scripts (including demo_evans_index.ipynb), you will find:
 
 ---
 
+### 🖼️ Screenshots
+
+Below are some example visualizations produced by the pipeline:
+
+![Segmentation Alignment](./images/initial_mask_vs_aligned_mask.png)  
+*Left: original brain mask. Right: aligned brain mask after pitch correction.*
+
+![Evans Index Slice](./images/ventricles_and_brain_max_width.png)  
+*Single axial slice showing segmentation of ventricles (blue) and brain (orange) used for Evans Index calculation.*
+---
+
 ### 🗂️ Folder Structure
 
 ```
