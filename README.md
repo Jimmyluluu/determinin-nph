@@ -57,27 +57,6 @@ TOTALSEGMENTATOR_TOKEN=<your_totalsegmentator_token>
 
 ---
 
-## Usage
-If you get "ModuleNotFoundError" you can try specifying project root directly with:
-```bash
-export PYTHONPATH=/absolute/path/to/MindScope
-```
-
-Run the main pipeline script with the path to your DICOM folder:
-
-```bash
-python src/pipeline_for_dcm_folder.py
-```
-
-After processing completes, open the Jupyter notebook for visualization and detailed analysis:
-
-```bash
-notebooks/demo_evans_index.ipynb
-```
-Please specify your "base = '/Users/maratorozaliev/Desktop/MindScope/data/_131505/'"
-
----
-
 ## Outputs
 
 - Volumetric statistics of brain structures, including Evans Index and VBR
@@ -87,10 +66,77 @@ Please specify your "base = '/Users/maratorozaliev/Desktop/MindScope/data/_13150
 
 ---
 
+## 🧪 Sample Case
+
+This section demonstrates a sample use case of the pipeline.
+
+### 📂 Input
+
+A sample DICOM folder is provided at:
+```
+https://drive.google.com/drive/folders/1XmbWorwfuCjpnybmHxFOpMrm1TaLT1gh?usp=share_link
+```
+
+### ⚙️ Run Command
+
+Run the main pipeline script with the path to your DICOM folder:
+
+```bash
+python src/pipeline_for_dcm_folder.py
+```
+
+If you get "ModuleNotFoundError" you can try specifying project root directly with:
+```bash
+export PYTHONPATH=/absolute/path/to/MindScope
+```
+
+After processing completes, open the Jupyter notebook for visualization and detailed analysis:
+
+```bash
+notebooks/demo_evans_index.ipynb
+```
+You need to specify "base" paratemeter with your own path to MindScope/data/generated_token/.
+
+---
+
+### 📈 Output
+
+After you process all scripts (including demo_evans_index.ipynb file), you will find the following:
+- Segmentation files (e.g., `.nii.gz` masks for each brain structure and ventricles)
+- A statistics.json file containing brain structure volumes and metrics
+- aligning.mat file containing rotation angles (used in .ipynb file to created aligned masks)
+
+
+### 🗂️ Folder Structure
+
+```
+project-root/
+├── notebooks/
+│   └── demo_evans_index.ipynb
+├── src/
+│   └── pipeline_for_dcm_folder.py
+├── data/
+│   └── generated_token/
+│       ├── brain_structures/
+│       │   ├── segmentation_1.nii.gz
+│       │   ├── segmentation_2.nii.gz
+│       │   ├── ...
+│       │   └── statistics.json
+│       ├── ventricles/
+│       │   ├── segmentation_1.nii.gz
+│       │   ├── segmentation_2.nii.gz
+│       │   ├── ...
+│       │   └── statistics.json
+│       ├── aligning.mat
+│       └── etc...
+├── .env  ← specify your TOTALSEGMENTATOR_TOKEN here
+```
+
+---
+
+You can use this sample case to verify the pipeline setup and output interpretation.
 ## TODO
 
-- Add detailed usage examples and command line options
-- Document output files structure and formats
 - Add scripts for automated environment setup
 - Expand troubleshooting and configuration instructions
 
