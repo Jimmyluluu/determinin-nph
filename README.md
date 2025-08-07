@@ -57,12 +57,13 @@ TOTALSEGMENTATOR_TOKEN=<your_totalsegmentator_token>
 
 ---
 
-## Outputs
+## 🚀 Usage
 
-- Volumetric statistics of brain structures, including Evans Index and VBR
-- Segmentation files (NIfTI format)
-- Alignment parameters (rotation angles)
-- Visualizations and reports available in the notebook
+To process your own DICOM CT scans folder:
+
+```bash
+python src/pipeline_for_dcm_folder.py <- specify your /absolute/path/to/dicom/folder
+```
 
 ---
 
@@ -70,12 +71,9 @@ TOTALSEGMENTATOR_TOKEN=<your_totalsegmentator_token>
 
 This section demonstrates a sample use case of the pipeline.
 
-### 📂 Input
+### 📥 Download Sample DICOM Case
 
-A sample DICOM folder is provided at:
-```
-https://drive.google.com/drive/folders/1XmbWorwfuCjpnybmHxFOpMrm1TaLT1gh?usp=share_link
-```
+You can download the sample DICOM folder [here](https://drive.google.com/drive/folders/1XmbWorwfuCjpnybmHxFOpMrm1TaLT1gh?usp=share_link).
 
 ### ⚙️ Run Command
 
@@ -95,17 +93,21 @@ After processing completes, open the Jupyter notebook for visualization and deta
 ```bash
 notebooks/demo_evans_index.ipynb
 ```
-You need to specify "base" paratemeter with your own path to MindScope/data/generated_token/.
+You need to specify the "base" parameter with your own path to MindScope/data/generated_token/.
 
 ---
 
 ### 📈 Output
 
-After you process all scripts (including demo_evans_index.ipynb file), you will find the following:
-- Segmentation files (e.g., `.nii.gz` masks for each brain structure and ventricles)
-- A statistics.json file containing brain structure volumes and metrics
-- aligning.mat file containing rotation angles (used in .ipynb file to created aligned masks)
+After running all scripts (including demo_evans_index.ipynb), you will find:
+| File / Folder             | Description                                                                         |
+|---------------------------|-------------------------------------------------------------------------------------|
+| `segmentation_*.nii.gz`   | Segmentation masks for brain regions                                                |
+| `statistics.json`         | Volumes and calculated metrics like VBR = Ventricle-to-Brain Ratio, EI = Evans Index|
+| `aligning.mat`            | Alignment rotation angles for pitch correction                                      |
+| `brain_mask_aligned.nii`  | Aligned brain mask                                                                  |
 
+---
 
 ### 🗂️ Folder Structure
 
