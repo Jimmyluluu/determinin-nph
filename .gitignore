@@ -1,0 +1,5 @@
+pyenv/
+.env
+data/*
+!data/brain_blueprint/
+!data/brain_blueprint/**
