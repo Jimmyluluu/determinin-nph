@@ -74,6 +74,7 @@ After processing completes, open the Jupyter notebook for visualization and deta
 ```bash
 notebooks/demo_evans_index.ipynb
 ```
+Please specify your "base = '/Users/maratorozaliev/Desktop/MindScope/data/_131505/'"
 
 ---
 
