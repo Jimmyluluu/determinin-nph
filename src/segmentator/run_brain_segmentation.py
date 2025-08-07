@@ -23,6 +23,7 @@ def run_totalsegmentator(ct_path: str, output_path: str, token: str, task: str =
         "-o", output_path,
         "--task", task,
         "--device", "cpu",
+        "--statistics",
         "-l", token
     ]
     
