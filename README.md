@@ -16,8 +16,11 @@ The program takes a folder containing DICOM files of head CT, processes them usi
 
 - Python 3.10
 - [TotalSegmentator](https://github.com/wasserth/TotalSegmentator) (requires access token)
-- [FSL (flirt)](https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py) for image alignment
+- [FSL (flirt)](https://fsl.fmrib.ox.ac.uk/fsldownloads) for image alignment
 - [dcm2niix](https://github.com/rordenlab/dcm2niix) for DICOM to NIfTI conversion
+```bash
+brew install dcm2niix
+```
 - Python dependencies listed in `requirements.txt`
 
 ---
