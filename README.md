@@ -27,7 +27,7 @@ The program takes a folder containing DICOM files of head CT, processes them usi
 1. Clone this repository:
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/maratNeSlaiv/MindScope.git
    cd MindScope
    ```
 
