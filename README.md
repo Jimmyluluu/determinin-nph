@@ -55,6 +55,10 @@ TOTALSEGMENTATOR_TOKEN=<your_totalsegmentator_token>
 ---
 
 ## Usage
+If you get "ModuleNotFoundError" you can try specifying project root directly with:
+```bash
+export PYTHONPATH=/absolute/path/to/MindScope
+```
 
 Run the main pipeline script with the path to your DICOM folder:
 
