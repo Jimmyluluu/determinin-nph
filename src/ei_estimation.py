@@ -132,14 +132,13 @@ def find_best_ventricle_segment(nii_path: str, occupancy_threshold=0.9):
 
     return best
 
-def find_skull_segment(skull_path: str, z_fixed: int, y_fixed: int):
+def find_skull_segment(skull_path: str, z_fixed: int):
     """
-    Find the width and coordinates of the skull segment at a given slice and column.
+    Find the widest skull segment across all y-columns at a given Z slice.
 
     Parameters:
         skull_path (str): path to the NIfTI file with the skull mask
         z_fixed (int): slice index along the Z-axis
-        y_fixed (int): column index along the Y-axis
 
     Returns:
         dict with segment parameters: width, x1, x2, occupancy, z, y
@@ -149,24 +148,34 @@ def find_skull_segment(skull_path: str, z_fixed: int, y_fixed: int):
     skull_binary = (skull_data > 0).astype(np.uint8)
 
     slice_skull = skull_binary[:, :, z_fixed]
-    col_skull = slice_skull[:, y_fixed]
 
-    xs = np.where(col_skull > 0)[0]
-    if xs.size < 2:
-        raise RuntimeError(f"No continuous skull segment found in column y={y_fixed}, slice z={z_fixed}")
+    best_segment = None
 
-    x1_skull, x2_skull = xs.min(), xs.max()
-    width_skull = x2_skull - x1_skull
-    occupancy_skull = col_skull[x1_skull:x2_skull+1].sum() / (width_skull + 1)
+    for y in range(slice_skull.shape[1]):
+        col_skull = slice_skull[:, y]
+        xs = np.where(col_skull > 0)[0]
 
-    return {
-        'width': width_skull,
-        'x1': int(x1_skull),
-        'x2': int(x2_skull),
-        'occupancy': occupancy_skull,
-        'z': z_fixed,
-        'y': y_fixed
-    }
+        if xs.size < 2:
+            continue  # нет сегмента для этой колонки
+
+        x1_skull, x2_skull = xs.min(), xs.max()
+        width_skull = x2_skull - x1_skull
+        occupancy_skull = col_skull[x1_skull:x2_skull+1].sum() / (width_skull + 1)
+
+        if (best_segment is None) or (width_skull > best_segment['width']):
+            best_segment = {
+                'width': width_skull,
+                'x1': int(x1_skull),
+                'x2': int(x2_skull),
+                'occupancy': occupancy_skull,
+                'z': z_fixed,
+                'y': y
+            }
+
+    if best_segment is None:
+        raise RuntimeError(f"No skull segment found in slice z={z_fixed}")
+
+    return best_segment
 
 def check_hydrocephalus(ventricles_width, skull_width):
     """
@@ -220,7 +229,7 @@ def run_hydrocephalus_analysis(ventricle_nii_path, skull_nii_path, z_fixed=None,
     if y_fixed is None:
         y_fixed = best_ventricle_segment['y']
 
-    skull_segment = find_skull_segment(skull_nii_path, z_fixed, y_fixed)
+    skull_segment = find_skull_segment(skull_nii_path, z_fixed)
 
     hydrocephalus_result = check_hydrocephalus(
         ventricles_width=best_ventricle_segment['width'],
@@ -246,7 +255,8 @@ def check_and_get_paths(base_path: str):
     expected_files = {
         "mat_file": "aligning.mat",
         "brain_mask_combined": "brain_mask_combined.nii.gz",
-        "ventricles_combined": "lateral_ventricles_combined.nii.gz"
+        # "ventricles_combined": "lateral_ventricles_combined.nii.gz"
+        "ventricles_combined": os.path.join("brain_structures", "ventricle.nii.gz")
     }
 
     paths = {}
@@ -338,7 +348,7 @@ def ei_estimation_pipeline(base: str, verbosity: bool = False):
 
 if __name__ == "__main__":
 
-    base = "/Users/maratorozaliev/Desktop/MindScope/data/_131505/"
+    base = "/Users/maratorozaliev/Desktop/MindScope/data/000518240B_155448/"
     results = ei_estimation_pipeline(base)
 
     print("Best ventricle segment:")

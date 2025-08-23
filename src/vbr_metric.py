@@ -33,6 +33,6 @@ def calculate_brain_metrics(json_path):
     }
 
 if __name__ == "__main__":
-    statistics_path = "/Users/maratorozaliev/Desktop/MindScope/data/_131505/brain_structures/statistics.json"
+    statistics_path = "/Users/maratorozaliev/Desktop/MindScope/data/000518240B_155448/brain_structures/statistics.json"
     metrics_results = calculate_brain_metrics(statistics_path)
     print({key: metrics_results[key] for key in ['VBR', 'note']})
