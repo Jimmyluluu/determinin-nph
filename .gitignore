@@ -3,3 +3,8 @@ pyenv/
 data/*
 !data/brain_blueprint/
 !data/brain_blueprint/**
+.DS_Store
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
