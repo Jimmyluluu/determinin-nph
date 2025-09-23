@@ -8,7 +8,7 @@ import json
 import csv
 from dotenv import load_dotenv
 
-def run_pipeline_dcm_to_data_folder(dcm_folder_path, totalseg_token, project_root=".", data_folder_name="data"):
+def run_pipeline_dcm_to_data_folder(dcm_folder_path, totalseg_token=None, project_root=".", data_folder_name="data"):
     """
     Creates a new directory under project_root/data/{file_name_token} for a DICOM folder input.
 

@@ -8,3 +8,5 @@ data/*
 *.pyo
 *.pyd
 __pycache__/
+env
+src/__pycache__

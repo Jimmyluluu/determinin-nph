@@ -12,7 +12,7 @@ MindScope is a **Python 3.10-based pipeline** for:
 - 📊 calculation of **Evans Index (EI)** and **Ventricle-to-Brain Ratio (VBR)**
 
 The program takes a folder containing **DICOM files** of head CT, processes them using:
-- 🧩 [TotalSegmentator](https://github.com/wasserth/TotalSegmentator)
+- 🧩 [T](https://github.com/wasserth/TotalSegmentator)
 - 🧭 [FSL's flirt](https://fsl.fmrib.ox.ac.uk/fsldownloads) for alignment
 - 🗂️ and produces volumetric statistics + visualizations
 
