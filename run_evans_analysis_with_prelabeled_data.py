@@ -73,15 +73,16 @@ def check_prelabeled_data_paths(base_path: str, dataset_name: str) -> Dict[str, 
             missing_files.append(os.path.basename(path))
 
     # 檢查必要檔案
-    # 如果沒有合併的 ventricles，檢查是否有左右腦室檔案
-    if "ventricles" not in existing_paths:
-        if "ventricle_left" in existing_paths and "ventricle_right" in existing_paths:
-            existing_paths["needs_merge"] = True
-        else:
-            print(f"❌ {dataset_name}: 缺少腦室檔案")
-            return existing_paths, False
+    # Evans Index 必須使用左右側腦室，不能使用包含四腦室和三腦室的 Ventricles
+    if "ventricle_left" in existing_paths and "ventricle_right" in existing_paths:
+        existing_paths["needs_merge"] = True
     else:
-        existing_paths["needs_merge"] = False
+        # 檢查是否有 Ventricles 檔案但沒有左右分離檔案
+        if "ventricles" in existing_paths:
+            print(f"⚠️ {dataset_name}: 只有 Ventricles 檔案，無法進行 Evans Index 分析（需要左右腦室分離）")
+        else:
+            print(f"❌ {dataset_name}: 缺少左右腦室檔案")
+        return existing_paths, False
 
     # 檢查 original 檔案
     if "original" not in existing_paths:
@@ -180,14 +181,16 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
         if left_img.GetSize() != right_img.GetSize():
             return False
 
-        # 二值化
-        left_binary = sitk.BinaryThreshold(left_img, lowerThreshold=0.5, upperThreshold=10000,
-                                         insideValue=1, outsideValue=0)
-        right_binary = sitk.BinaryThreshold(right_img, lowerThreshold=0.5, upperThreshold=10000,
-                                          insideValue=1, outsideValue=0)
+        # 轉換為 numpy 進行合併
+        left_array = sitk.GetArrayFromImage(left_img)
+        right_array = sitk.GetArrayFromImage(right_img)
 
-        # 合併（邏輯 OR）
-        merged = sitk.Or(left_binary, right_binary)
+        # 直接進行邏輯 OR (因為原檔案已經是二進制的 0/1)
+        merged_array = np.logical_or(left_array > 0.5, right_array > 0.5).astype(np.uint8)
+
+        # 轉回 SimpleITK 影像
+        merged = sitk.GetImageFromArray(merged_array)
+        merged.CopyInformation(left_img)
 
         # 保存結果
         sitk.WriteImage(merged, output_path)
@@ -196,7 +199,7 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
     except Exception as e:
         return False
 
-def find_best_ventricle_segment(nii_path: str, occupancy_threshold: float = 0.8, max_reasonable_width: int = 200) -> Dict:
+def find_best_ventricle_segment(nii_path: str, max_reasonable_width: int = 200) -> Dict:
     """
     找出腦室的最佳測量段（從現有的 notebook 程式碼複製）
     """
@@ -207,6 +210,11 @@ def find_best_ventricle_segment(nii_path: str, occupancy_threshold: float = 0.8,
     best = {'width': 0, 'z': None, 'y': None, 'x1': None, 'x2': None, 'occupancy': 0}
     X, Y, Z = binary.shape
 
+    # 檢查遮罩是否有內容
+    total_pixels = np.count_nonzero(binary)
+    if total_pixels == 0:
+        print(f"❌ 腦室遮罩完全為空")
+        return best
 
     suspicious_segments = []
 
@@ -230,9 +238,12 @@ def find_best_ventricle_segment(nii_path: str, occupancy_threshold: float = 0.8,
                 continue
 
             occupancy = col[x1:x2+1].sum() / (width + 1)
-            if occupancy >= occupancy_threshold:
-                best.update({'width': int(width), 'z': int(z), 'y': int(y), 'x1': int(x1), 'x2': int(x2), 'occupancy': float(occupancy)})
+            # 對於已標記的腦室，不設 occupancy 閾值限制
+            best.update({'width': int(width), 'z': int(z), 'y': int(y), 'x1': int(x1), 'x2': int(x2), 'occupancy': float(occupancy)})
 
+    # 調試資訊
+    if best['width'] == 0:
+        print(f"❌ 找不到有效腦室段，總像素: {total_pixels}, 可疑段數: {len(suspicious_segments)}")
 
     return best
 
@@ -320,33 +331,24 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
     """
     使用標記好的資料執行 Evans Index 分析
     """
-    print(f"\n🔍 開始分析: {dataset_name}")
 
     # 檢查檔案路徑
     paths, success = check_prelabeled_data_paths(base_path, dataset_name)
     if not success:
         return None
 
-    # 準備腦室遮罩
-    ventricle_mask_path = None
-    if paths["needs_merge"]:
-        # 需要合併左右腦室
-        ventricle_mask_path = os.path.join(paths["dataset_path"], "merged_ventricles.nii.gz")
-        if not os.path.exists(ventricle_mask_path):
-            success = merge_left_right_ventricles(
-                paths["ventricle_left"],
-                paths["ventricle_right"],
-                ventricle_mask_path
-            )
-            if not success:
-                print(f"❌ 無法合併腦室遮罩，跳過 {dataset_name}")
-                return None
-    else:
-        # 使用現有的合併腦室檔案
-        ventricle_mask_path = paths["ventricles"]
+    # 準備腦室遮罩 - 統一使用左右腦室合併
+    ventricle_mask_path = os.path.join(paths["dataset_path"], "merged_lateral_ventricles.nii.gz")
+    if not os.path.exists(ventricle_mask_path):
+        success = merge_left_right_ventricles(
+            paths["ventricle_left"],
+            paths["ventricle_right"],
+            ventricle_mask_path
+        )
+        if not success:
+            return None
 
     # 準備腦部遮罩 - 統一使用原始影像
-    print(f"🧠 使用原始影像建立腦部遮罩...")
     brain_mask_path = os.path.join(paths["dataset_path"], "brain_mask_from_original.nii.gz")
     if not os.path.exists(brain_mask_path):
         success = create_brain_mask_from_original(paths["original"], brain_mask_path)
