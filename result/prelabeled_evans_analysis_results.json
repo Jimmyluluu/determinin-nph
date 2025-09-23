@@ -73,24 +73,24 @@
     "000087554H": {
       "dataset": "000087554H",
       "ventricle_segment": {
-        "width": 150,
-        "z": 13,
-        "y": 196,
-        "x1": 185,
-        "x2": 335,
-        "occupancy": 0.17218543046357615
+        "width": 138,
+        "z": 14,
+        "y": 180,
+        "x1": 190,
+        "x2": 328,
+        "occupancy": 0.33093525179856115
       },
       "skull_segment": {
         "width": 250,
         "x1": 134,
         "x2": 384,
         "occupancy": 1.0,
-        "z": 13,
-        "y": 217
+        "z": 14,
+        "y": 215
       },
       "evans_analysis": {
-        "evans_index": 0.6,
-        "ventricle_width": 150,
+        "evans_index": 0.552,
+        "ventricle_width": 138,
         "skull_width": 250,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
@@ -144,24 +144,24 @@
       "dataset": "000137208D",
       "ventricle_segment": {
         "width": 200,
-        "z": 17,
-        "y": 238,
-        "x1": 149,
-        "x2": 349,
+        "z": 18,
+        "y": 225,
+        "x1": 148,
+        "x2": 348,
         "occupancy": 0.0845771144278607
       },
       "skull_segment": {
-        "width": 324,
-        "x1": 85,
-        "x2": 409,
+        "width": 328,
+        "x1": 82,
+        "x2": 410,
         "occupancy": 1.0,
-        "z": 17,
+        "z": 18,
         "y": 241
       },
       "evans_analysis": {
-        "evans_index": 0.6173,
+        "evans_index": 0.6098,
         "ventricle_width": 200,
-        "skull_width": 324,
+        "skull_width": 328,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -179,24 +179,24 @@
       "dataset": "000152785B",
       "ventricle_segment": {
         "width": 183,
-        "z": 44,
-        "y": 251,
-        "x1": 147,
-        "x2": 330,
-        "occupancy": 0.09239130434782608
+        "z": 45,
+        "y": 236,
+        "x1": 146,
+        "x2": 329,
+        "occupancy": 0.10326086956521739
       },
       "skull_segment": {
-        "width": 294,
-        "x1": 86,
-        "x2": 380,
+        "width": 296,
+        "x1": 85,
+        "x2": 381,
         "occupancy": 1.0,
-        "z": 44,
+        "z": 45,
         "y": 246
       },
       "evans_analysis": {
-        "evans_index": 0.6224,
+        "evans_index": 0.6182,
         "ventricle_width": 183,
-        "skull_width": 294,
+        "skull_width": 296,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -213,25 +213,25 @@
     "000189105A": {
       "dataset": "000189105A",
       "ventricle_segment": {
-        "width": 156,
-        "z": 15,
-        "y": 222,
-        "x1": 170,
-        "x2": 326,
-        "occupancy": 0.07006369426751592
+        "width": 134,
+        "z": 18,
+        "y": 179,
+        "x1": 185,
+        "x2": 319,
+        "occupancy": 0.21481481481481482
       },
       "skull_segment": {
-        "width": 265,
-        "x1": 118,
+        "width": 266,
+        "x1": 117,
         "x2": 383,
         "occupancy": 1.0,
-        "z": 15,
-        "y": 216
+        "z": 18,
+        "y": 206
       },
       "evans_analysis": {
-        "evans_index": 0.5887,
-        "ventricle_width": 156,
-        "skull_width": 265,
+        "evans_index": 0.5038,
+        "ventricle_width": 134,
+        "skull_width": 266,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -248,25 +248,25 @@
     "000206288G": {
       "dataset": "000206288G",
       "ventricle_segment": {
-        "width": 153,
-        "z": 17,
-        "y": 207,
-        "x1": 175,
-        "x2": 328,
-        "occupancy": 0.11688311688311688
+        "width": 149,
+        "z": 18,
+        "y": 201,
+        "x1": 178,
+        "x2": 327,
+        "occupancy": 0.14666666666666667
       },
       "skull_segment": {
-        "width": 262,
-        "x1": 123,
-        "x2": 385,
+        "width": 265,
+        "x1": 122,
+        "x2": 387,
         "occupancy": 1.0,
-        "z": 17,
-        "y": 208
+        "z": 18,
+        "y": 209
       },
       "evans_analysis": {
-        "evans_index": 0.584,
-        "ventricle_width": 153,
-        "skull_width": 262,
+        "evans_index": 0.5623,
+        "ventricle_width": 149,
+        "skull_width": 265,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -458,25 +458,25 @@
     "000882612I": {
       "dataset": "000882612I",
       "ventricle_segment": {
-        "width": 148,
-        "z": 15,
-        "y": 226,
-        "x1": 171,
-        "x2": 319,
-        "occupancy": 0.040268456375838924
+        "width": 105,
+        "z": 20,
+        "y": 144,
+        "x1": 181,
+        "x2": 286,
+        "occupancy": 0.1320754716981132
       },
       "skull_segment": {
-        "width": 277,
-        "x1": 109,
-        "x2": 386,
+        "width": 283,
+        "x1": 106,
+        "x2": 389,
         "occupancy": 1.0,
-        "z": 15,
-        "y": 205
+        "z": 20,
+        "y": 206
       },
       "evans_analysis": {
-        "evans_index": 0.5343,
-        "ventricle_width": 148,
-        "skull_width": 277,
+        "evans_index": 0.371,
+        "ventricle_width": 105,
+        "skull_width": 283,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -633,25 +633,25 @@
     "001046347F": {
       "dataset": "001046347F",
       "ventricle_segment": {
-        "width": 134,
-        "z": 9,
-        "y": 234,
+        "width": 132,
+        "z": 12,
+        "y": 191,
         "x1": 165,
-        "x2": 299,
-        "occupancy": 0.08148148148148149
+        "x2": 297,
+        "occupancy": 0.09774436090225563
       },
       "skull_segment": {
-        "width": 249,
-        "x1": 109,
-        "x2": 358,
+        "width": 256,
+        "x1": 105,
+        "x2": 361,
         "occupancy": 1.0,
-        "z": 9,
-        "y": 214
+        "z": 12,
+        "y": 212
       },
       "evans_analysis": {
-        "evans_index": 0.5382,
-        "ventricle_width": 134,
-        "skull_width": 249,
+        "evans_index": 0.5156,
+        "ventricle_width": 132,
+        "skull_width": 256,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -668,25 +668,25 @@
     "001149210H": {
       "dataset": "001149210H",
       "ventricle_segment": {
-        "width": 200,
-        "z": 10,
-        "y": 212,
-        "x1": 160,
-        "x2": 360,
-        "occupancy": 0.09950248756218906
+        "width": 199,
+        "z": 11,
+        "y": 190,
+        "x1": 162,
+        "x2": 361,
+        "occupancy": 0.165
       },
       "skull_segment": {
-        "width": 316,
+        "width": 317,
         "x1": 104,
-        "x2": 420,
+        "x2": 421,
         "occupancy": 1.0,
-        "z": 10,
+        "z": 11,
         "y": 204
       },
       "evans_analysis": {
-        "evans_index": 0.6329,
-        "ventricle_width": 200,
-        "skull_width": 316,
+        "evans_index": 0.6278,
+        "ventricle_width": 199,
+        "skull_width": 317,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -703,25 +703,25 @@
     "001329526G": {
       "dataset": "001329526G",
       "ventricle_segment": {
-        "width": 172,
-        "z": 18,
-        "y": 212,
-        "x1": 169,
-        "x2": 341,
-        "occupancy": 0.06358381502890173
+        "width": 164,
+        "z": 19,
+        "y": 201,
+        "x1": 170,
+        "x2": 334,
+        "occupancy": 0.07272727272727272
       },
       "skull_segment": {
-        "width": 289,
-        "x1": 111,
+        "width": 290,
+        "x1": 110,
         "x2": 400,
         "occupancy": 1.0,
-        "z": 18,
-        "y": 216
+        "z": 19,
+        "y": 214
       },
       "evans_analysis": {
-        "evans_index": 0.5952,
-        "ventricle_width": 172,
-        "skull_width": 289,
+        "evans_index": 0.5655,
+        "ventricle_width": 164,
+        "skull_width": 290,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -738,25 +738,25 @@
     "001408865E": {
       "dataset": "001408865E",
       "ventricle_segment": {
-        "width": 141,
-        "z": 16,
-        "y": 243,
-        "x1": 168,
-        "x2": 309,
-        "occupancy": 0.06338028169014084
+        "width": 138,
+        "z": 17,
+        "y": 227,
+        "x1": 166,
+        "x2": 304,
+        "occupancy": 0.11510791366906475
       },
       "skull_segment": {
-        "width": 234,
-        "x1": 120,
-        "x2": 354,
+        "width": 237,
+        "x1": 118,
+        "x2": 355,
         "occupancy": 1.0,
-        "z": 16,
-        "y": 226
+        "z": 17,
+        "y": 229
       },
       "evans_analysis": {
-        "evans_index": 0.6026,
-        "ventricle_width": 141,
-        "skull_width": 234,
+        "evans_index": 0.5823,
+        "ventricle_width": 138,
+        "skull_width": 237,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -808,25 +808,25 @@
     "001544029G": {
       "dataset": "001544029G",
       "ventricle_segment": {
-        "width": 165,
-        "z": 20,
-        "y": 249,
-        "x1": 167,
-        "x2": 332,
-        "occupancy": 0.018072289156626505
+        "width": 141,
+        "z": 22,
+        "y": 198,
+        "x1": 176,
+        "x2": 317,
+        "occupancy": 0.29577464788732394
       },
       "skull_segment": {
-        "width": 281,
-        "x1": 109,
+        "width": 282,
+        "x1": 108,
         "x2": 390,
         "occupancy": 1.0,
-        "z": 20,
-        "y": 244
+        "z": 22,
+        "y": 241
       },
       "evans_analysis": {
-        "evans_index": 0.5872,
-        "ventricle_width": 165,
-        "skull_width": 281,
+        "evans_index": 0.5,
+        "ventricle_width": 141,
+        "skull_width": 282,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -843,25 +843,25 @@
     "001561211A": {
       "dataset": "001561211A",
       "ventricle_segment": {
-        "width": 132,
-        "z": 13,
-        "y": 219,
-        "x1": 154,
-        "x2": 286,
-        "occupancy": 0.05263157894736842
+        "width": 106,
+        "z": 20,
+        "y": 151,
+        "x1": 166,
+        "x2": 272,
+        "occupancy": 0.11214953271028037
       },
       "skull_segment": {
-        "width": 238,
-        "x1": 102,
-        "x2": 340,
+        "width": 245,
+        "x1": 97,
+        "x2": 342,
         "occupancy": 1.0,
-        "z": 13,
-        "y": 181
+        "z": 20,
+        "y": 180
       },
       "evans_analysis": {
-        "evans_index": 0.5546,
-        "ventricle_width": 132,
-        "skull_width": 238,
+        "evans_index": 0.4327,
+        "ventricle_width": 106,
+        "skull_width": 245,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -878,25 +878,25 @@
     "001612043H": {
       "dataset": "001612043H",
       "ventricle_segment": {
-        "width": 174,
-        "z": 15,
-        "y": 230,
-        "x1": 155,
-        "x2": 329,
-        "occupancy": 0.21142857142857144
+        "width": 170,
+        "z": 16,
+        "y": 219,
+        "x1": 156,
+        "x2": 326,
+        "occupancy": 0.25146198830409355
       },
       "skull_segment": {
-        "width": 265,
-        "x1": 110,
+        "width": 266,
+        "x1": 109,
         "x2": 375,
         "occupancy": 1.0,
-        "z": 15,
+        "z": 16,
         "y": 247
       },
       "evans_analysis": {
-        "evans_index": 0.6566,
-        "ventricle_width": 174,
-        "skull_width": 265,
+        "evans_index": 0.6391,
+        "ventricle_width": 170,
+        "skull_width": 266,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -948,27 +948,27 @@
     "001765014F": {
       "dataset": "001765014F",
       "ventricle_segment": {
-        "width": 151,
-        "z": 16,
-        "y": 261,
-        "x1": 173,
-        "x2": 324,
-        "occupancy": 0.039473684210526314
+        "width": 9,
+        "z": 20,
+        "y": 192,
+        "x1": 179,
+        "x2": 188,
+        "occupancy": 1.0
       },
       "skull_segment": {
-        "width": 281,
-        "x1": 107,
-        "x2": 388,
+        "width": 285,
+        "x1": 104,
+        "x2": 389,
         "occupancy": 1.0,
-        "z": 16,
-        "y": 217
+        "z": 20,
+        "y": 216
       },
       "evans_analysis": {
-        "evans_index": 0.5374,
-        "ventricle_width": 151,
-        "skull_width": 281,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.0316,
+        "ventricle_width": 9,
+        "skull_width": 285,
+        "clinical_significance": "正常範圍 (≤ 0.25)",
+        "hydrocephalus_risk": "低",
         "warnings": null
       },
       "files_used": {
@@ -983,25 +983,25 @@
     "001998293F": {
       "dataset": "001998293F",
       "ventricle_segment": {
-        "width": 185,
-        "z": 13,
-        "y": 246,
-        "x1": 155,
-        "x2": 340,
-        "occupancy": 0.10752688172043011
+        "width": 171,
+        "z": 16,
+        "y": 196,
+        "x1": 161,
+        "x2": 332,
+        "occupancy": 0.27906976744186046
       },
       "skull_segment": {
-        "width": 282,
-        "x1": 105,
-        "x2": 387,
+        "width": 286,
+        "x1": 102,
+        "x2": 388,
         "occupancy": 1.0,
-        "z": 13,
-        "y": 225
+        "z": 16,
+        "y": 224
       },
       "evans_analysis": {
-        "evans_index": 0.656,
-        "ventricle_width": 185,
-        "skull_width": 282,
+        "evans_index": 0.5979,
+        "ventricle_width": 171,
+        "skull_width": 286,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1018,27 +1018,27 @@
     "002001468A": {
       "dataset": "002001468A",
       "ventricle_segment": {
-        "width": 92,
-        "z": 12,
-        "y": 246,
+        "width": 6,
+        "z": 17,
+        "y": 202,
         "x1": 221,
-        "x2": 313,
-        "occupancy": 0.23655913978494625
+        "x2": 227,
+        "occupancy": 1.0
       },
       "skull_segment": {
-        "width": 233,
+        "width": 234,
         "x1": 149,
-        "x2": 382,
+        "x2": 383,
         "occupancy": 1.0,
-        "z": 12,
-        "y": 221
+        "z": 17,
+        "y": 212
       },
       "evans_analysis": {
-        "evans_index": 0.3948,
-        "ventricle_width": 92,
-        "skull_width": 233,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.0256,
+        "ventricle_width": 6,
+        "skull_width": 234,
+        "clinical_significance": "正常範圍 (≤ 0.25)",
+        "hydrocephalus_risk": "低",
         "warnings": null
       },
       "files_used": {
@@ -1053,25 +1053,25 @@
     "002003691D": {
       "dataset": "002003691D",
       "ventricle_segment": {
-        "width": 160,
-        "z": 16,
-        "y": 225,
-        "x1": 173,
-        "x2": 333,
-        "occupancy": 0.11180124223602485
+        "width": 144,
+        "z": 18,
+        "y": 199,
+        "x1": 181,
+        "x2": 325,
+        "occupancy": 0.2827586206896552
       },
       "skull_segment": {
-        "width": 264,
-        "x1": 120,
-        "x2": 384,
+        "width": 266,
+        "x1": 119,
+        "x2": 385,
         "occupancy": 1.0,
-        "z": 16,
-        "y": 227
+        "z": 18,
+        "y": 209
       },
       "evans_analysis": {
-        "evans_index": 0.6061,
-        "ventricle_width": 160,
-        "skull_width": 264,
+        "evans_index": 0.5414,
+        "ventricle_width": 144,
+        "skull_width": 266,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1123,25 +1123,25 @@
     "data_1": {
       "dataset": "data_1",
       "ventricle_segment": {
-        "width": 90,
-        "z": 113,
-        "y": 210,
-        "x1": 208,
-        "x2": 298,
-        "occupancy": 0.10989010989010989
+        "width": 84,
+        "z": 124,
+        "y": 250,
+        "x1": 212,
+        "x2": 296,
+        "occupancy": 0.11764705882352941
       },
       "skull_segment": {
-        "width": 170,
+        "width": 172,
         "x1": 162,
-        "x2": 332,
-        "occupancy": 0.8128654970760234,
-        "z": 113,
-        "y": 203
+        "x2": 334,
+        "occupancy": 0.9479768786127167,
+        "z": 124,
+        "y": 210
       },
       "evans_analysis": {
-        "evans_index": 0.5294,
-        "ventricle_width": 90,
-        "skull_width": 170,
+        "evans_index": 0.4884,
+        "ventricle_width": 84,
+        "skull_width": 172,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1158,25 +1158,25 @@
     "data_10": {
       "dataset": "data_10",
       "ventricle_segment": {
-        "width": 146,
-        "z": 19,
-        "y": 286,
-        "x1": 177,
-        "x2": 323,
-        "occupancy": 0.11564625850340136
+        "width": 81,
+        "z": 23,
+        "y": 182,
+        "x1": 208,
+        "x2": 289,
+        "occupancy": 0.5609756097560976
       },
       "skull_segment": {
-        "width": 240,
-        "x1": 128,
+        "width": 243,
+        "x1": 125,
         "x2": 368,
-        "occupancy": 1.0,
-        "z": 19,
-        "y": 272
+        "occupancy": 0.9221311475409836,
+        "z": 23,
+        "y": 253
       },
       "evans_analysis": {
-        "evans_index": 0.6083,
-        "ventricle_width": 146,
-        "skull_width": 240,
+        "evans_index": 0.3333,
+        "ventricle_width": 81,
+        "skull_width": 243,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1193,27 +1193,27 @@
     "data_11": {
       "dataset": "data_11",
       "ventricle_segment": {
-        "width": 124,
-        "z": 20,
-        "y": 293,
-        "x1": 178,
-        "x2": 302,
-        "occupancy": 0.104
+        "width": 35,
+        "z": 22,
+        "y": 228,
+        "x1": 228,
+        "x2": 263,
+        "occupancy": 0.3888888888888889
       },
       "skull_segment": {
-        "width": 271,
+        "width": 270,
         "x1": 107,
-        "x2": 378,
-        "occupancy": 0.9375,
-        "z": 20,
-        "y": 274
+        "x2": 377,
+        "occupancy": 1.0,
+        "z": 22,
+        "y": 275
       },
       "evans_analysis": {
-        "evans_index": 0.4576,
-        "ventricle_width": 124,
-        "skull_width": 271,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.1296,
+        "ventricle_width": 35,
+        "skull_width": 270,
+        "clinical_significance": "正常範圍 (≤ 0.25)",
+        "hydrocephalus_risk": "低",
         "warnings": null
       },
       "files_used": {
@@ -1228,27 +1228,27 @@
     "data_12": {
       "dataset": "data_12",
       "ventricle_segment": {
-        "width": 151,
-        "z": 21,
-        "y": 265,
-        "x1": 191,
-        "x2": 342,
-        "occupancy": 0.18421052631578946
+        "width": 20,
+        "z": 22,
+        "y": 251,
+        "x1": 314,
+        "x2": 334,
+        "occupancy": 1.0
       },
       "skull_segment": {
-        "width": 282,
-        "x1": 114,
-        "x2": 396,
+        "width": 284,
+        "x1": 113,
+        "x2": 397,
         "occupancy": 1.0,
-        "z": 21,
+        "z": 22,
         "y": 291
       },
       "evans_analysis": {
-        "evans_index": 0.5355,
-        "ventricle_width": 151,
-        "skull_width": 282,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.0704,
+        "ventricle_width": 20,
+        "skull_width": 284,
+        "clinical_significance": "正常範圍 (≤ 0.25)",
+        "hydrocephalus_risk": "低",
         "warnings": null
       },
       "files_used": {
@@ -1263,12 +1263,12 @@
     "data_13": {
       "dataset": "data_13",
       "ventricle_segment": {
-        "width": 158,
+        "width": 138,
         "z": 17,
-        "y": 272,
-        "x1": 169,
-        "x2": 327,
-        "occupancy": 0.15723270440251572
+        "y": 255,
+        "x1": 174,
+        "x2": 312,
+        "occupancy": 0.30935251798561153
       },
       "skull_segment": {
         "width": 258,
@@ -1279,8 +1279,8 @@
         "y": 272
       },
       "evans_analysis": {
-        "evans_index": 0.6124,
-        "ventricle_width": 158,
+        "evans_index": 0.5349,
+        "ventricle_width": 138,
         "skull_width": 258,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
@@ -1298,27 +1298,27 @@
     "data_14": {
       "dataset": "data_14",
       "ventricle_segment": {
-        "width": 127,
-        "z": 20,
-        "y": 333,
-        "x1": 182,
-        "x2": 309,
-        "occupancy": 0.21875
+        "width": 67,
+        "z": 22,
+        "y": 181,
+        "x1": 205,
+        "x2": 272,
+        "occupancy": 0.39705882352941174
       },
       "skull_segment": {
         "width": 268,
         "x1": 108,
         "x2": 376,
         "occupancy": 1.0,
-        "z": 20,
+        "z": 22,
         "y": 290
       },
       "evans_analysis": {
-        "evans_index": 0.4739,
-        "ventricle_width": 127,
+        "evans_index": 0.25,
+        "ventricle_width": 67,
         "skull_width": 268,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
+        "hydrocephalus_risk": "低",
         "warnings": null
       },
       "files_used": {
@@ -1333,27 +1333,27 @@
     "data_15": {
       "dataset": "data_15",
       "ventricle_segment": {
-        "width": 173,
-        "z": 15,
-        "y": 296,
-        "x1": 170,
-        "x2": 343,
-        "occupancy": 0.1206896551724138
+        "width": 78,
+        "z": 20,
+        "y": 189,
+        "x1": 216,
+        "x2": 294,
+        "occupancy": 0.3037974683544304
       },
       "skull_segment": {
-        "width": 289,
-        "x1": 111,
-        "x2": 400,
-        "occupancy": 1.0,
-        "z": 15,
-        "y": 272
+        "width": 291,
+        "x1": 110,
+        "x2": 401,
+        "occupancy": 0.9452054794520548,
+        "z": 20,
+        "y": 289
       },
       "evans_analysis": {
-        "evans_index": 0.5986,
-        "ventricle_width": 173,
-        "skull_width": 289,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.268,
+        "ventricle_width": 78,
+        "skull_width": 291,
+        "clinical_significance": "可能或早期腦室擴大 (0.25-0.30)",
+        "hydrocephalus_risk": "中",
         "warnings": null
       },
       "files_used": {
@@ -1368,27 +1368,27 @@
     "data_2": {
       "dataset": "data_2",
       "ventricle_segment": {
-        "width": 118,
-        "z": 18,
-        "y": 302,
-        "x1": 191,
-        "x2": 309,
-        "occupancy": 0.20168067226890757
+        "width": 76,
+        "z": 17,
+        "y": 157,
+        "x1": 230,
+        "x2": 306,
+        "occupancy": 0.2857142857142857
       },
       "skull_segment": {
-        "width": 283,
+        "width": 282,
         "x1": 113,
-        "x2": 396,
+        "x2": 395,
         "occupancy": 1.0,
-        "z": 18,
-        "y": 240
+        "z": 17,
+        "y": 242
       },
       "evans_analysis": {
-        "evans_index": 0.417,
-        "ventricle_width": 118,
-        "skull_width": 283,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.2695,
+        "ventricle_width": 76,
+        "skull_width": 282,
+        "clinical_significance": "可能或早期腦室擴大 (0.25-0.30)",
+        "hydrocephalus_risk": "中",
         "warnings": null
       },
       "files_used": {
@@ -1403,25 +1403,25 @@
     "data_3": {
       "dataset": "data_3",
       "ventricle_segment": {
-        "width": 111,
-        "z": 100,
-        "y": 177,
-        "x1": 209,
+        "width": 108,
+        "z": 110,
+        "y": 214,
+        "x1": 212,
         "x2": 320,
-        "occupancy": 0.10714285714285714
+        "occupancy": 0.27522935779816515
       },
       "skull_segment": {
-        "width": 187,
-        "x1": 171,
-        "x2": 358,
+        "width": 189,
+        "x1": 170,
+        "x2": 359,
         "occupancy": 1.0,
-        "z": 100,
-        "y": 196
+        "z": 110,
+        "y": 187
       },
       "evans_analysis": {
-        "evans_index": 0.5936,
-        "ventricle_width": 111,
-        "skull_width": 187,
+        "evans_index": 0.5714,
+        "ventricle_width": 108,
+        "skull_width": 189,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1438,25 +1438,25 @@
     "data_4": {
       "dataset": "data_4",
       "ventricle_segment": {
-        "width": 117,
-        "z": 45,
-        "y": 260,
-        "x1": 173,
-        "x2": 290,
-        "occupancy": 0.2033898305084746
+        "width": 79,
+        "z": 52,
+        "y": 255,
+        "x1": 194,
+        "x2": 273,
+        "occupancy": 0.525
       },
       "skull_segment": {
-        "width": 202,
-        "x1": 140,
+        "width": 204,
+        "x1": 138,
         "x2": 342,
-        "occupancy": 0.9605911330049262,
-        "z": 45,
-        "y": 225
+        "occupancy": 0.8292682926829268,
+        "z": 52,
+        "y": 249
       },
       "evans_analysis": {
-        "evans_index": 0.5792,
-        "ventricle_width": 117,
-        "skull_width": 202,
+        "evans_index": 0.3873,
+        "ventricle_width": 79,
+        "skull_width": 204,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1473,25 +1473,25 @@
     "data_5": {
       "dataset": "data_5",
       "ventricle_segment": {
-        "width": 166,
-        "z": 15,
-        "y": 275,
-        "x1": 179,
-        "x2": 345,
-        "occupancy": 0.11377245508982035
+        "width": 110,
+        "z": 22,
+        "y": 167,
+        "x1": 207,
+        "x2": 317,
+        "occupancy": 0.7117117117117117
       },
       "skull_segment": {
-        "width": 251,
-        "x1": 138,
-        "x2": 389,
-        "occupancy": 1.0,
-        "z": 15,
-        "y": 260
+        "width": 268,
+        "x1": 133,
+        "x2": 401,
+        "occupancy": 0.929368029739777,
+        "z": 22,
+        "y": 278
       },
       "evans_analysis": {
-        "evans_index": 0.6614,
-        "ventricle_width": 166,
-        "skull_width": 251,
+        "evans_index": 0.4104,
+        "ventricle_width": 110,
+        "skull_width": 268,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1508,27 +1508,27 @@
     "data_6": {
       "dataset": "data_6",
       "ventricle_segment": {
-        "width": 161,
-        "z": 17,
-        "y": 264,
-        "x1": 170,
-        "x2": 331,
-        "occupancy": 0.10493827160493827
+        "width": 72,
+        "z": 22,
+        "y": 172,
+        "x1": 213,
+        "x2": 285,
+        "occupancy": 0.2328767123287671
       },
       "skull_segment": {
-        "width": 274,
-        "x1": 118,
-        "x2": 392,
-        "occupancy": 1.0,
-        "z": 17,
-        "y": 257
+        "width": 271,
+        "x1": 119,
+        "x2": 390,
+        "occupancy": 0.9926470588235294,
+        "z": 22,
+        "y": 271
       },
       "evans_analysis": {
-        "evans_index": 0.5876,
-        "ventricle_width": 161,
-        "skull_width": 274,
-        "clinical_significance": "腦室擴大 (> 0.30)",
-        "hydrocephalus_risk": "高",
+        "evans_index": 0.2657,
+        "ventricle_width": 72,
+        "skull_width": 271,
+        "clinical_significance": "可能或早期腦室擴大 (0.25-0.30)",
+        "hydrocephalus_risk": "中",
         "warnings": null
       },
       "files_used": {
@@ -1578,25 +1578,25 @@
     "data_8": {
       "dataset": "data_8",
       "ventricle_segment": {
-        "width": 154,
-        "z": 6,
-        "y": 229,
-        "x1": 155,
-        "x2": 309,
-        "occupancy": 0.12903225806451613
+        "width": 81,
+        "z": 12,
+        "y": 157,
+        "x1": 192,
+        "x2": 273,
+        "occupancy": 0.7439024390243902
       },
       "skull_segment": {
-        "width": 244,
-        "x1": 110,
-        "x2": 354,
+        "width": 256,
+        "x1": 102,
+        "x2": 358,
         "occupancy": 1.0,
-        "z": 6,
-        "y": 239
+        "z": 12,
+        "y": 264
       },
       "evans_analysis": {
-        "evans_index": 0.6311,
-        "ventricle_width": 154,
-        "skull_width": 244,
+        "evans_index": 0.3164,
+        "ventricle_width": 81,
+        "skull_width": 256,
         "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
@@ -1609,13 +1609,17 @@
         "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_8/mask_Ventricle_R_8.nii.gz",
         "needs_merge": true
       }
-    }
+    },
+    "_failed_cases": [
+      "000016209E",
+      "000051833C"
+    ]
   },
   "validation": {
     "total_analyzed": 46,
     "known_hydrocephalus_count": 6,
     "hydrocephalus_correctly_identified": 6,
-    "normal_correctly_identified": 0,
+    "normal_correctly_identified": 5,
     "false_negatives": [],
     "false_positives": [
       {
@@ -1628,7 +1632,7 @@
       },
       {
         "case": "000189105A",
-        "evans_index": 0.5887
+        "evans_index": 0.5038
       },
       {
         "case": "000225351C",
@@ -1648,7 +1652,7 @@
       },
       {
         "case": "000882612I",
-        "evans_index": 0.5343
+        "evans_index": 0.371
       },
       {
         "case": "000926486C",
@@ -1668,19 +1672,19 @@
       },
       {
         "case": "001046347F",
-        "evans_index": 0.5382
+        "evans_index": 0.5156
       },
       {
         "case": "001149210H",
-        "evans_index": 0.6329
+        "evans_index": 0.6278
       },
       {
         "case": "001329526G",
-        "evans_index": 0.5952
+        "evans_index": 0.5655
       },
       {
         "case": "001408865E",
-        "evans_index": 0.6026
+        "evans_index": 0.5823
       },
       {
         "case": "001427829G",
@@ -1688,35 +1692,27 @@
       },
       {
         "case": "001544029G",
-        "evans_index": 0.5872
+        "evans_index": 0.5
       },
       {
         "case": "001561211A",
-        "evans_index": 0.5546
+        "evans_index": 0.4327
       },
       {
         "case": "001612043H",
-        "evans_index": 0.6566
+        "evans_index": 0.6391
       },
       {
         "case": "001734036C",
         "evans_index": 0.5503
       },
       {
-        "case": "001765014F",
-        "evans_index": 0.5374
-      },
-      {
         "case": "001998293F",
-        "evans_index": 0.656
-      },
-      {
-        "case": "002001468A",
-        "evans_index": 0.3948
+        "evans_index": 0.5979
       },
       {
         "case": "002003691D",
-        "evans_index": 0.6061
+        "evans_index": 0.5414
       },
       {
         "case": "002055710C",
@@ -1724,51 +1720,39 @@
       },
       {
         "case": "data_1",
-        "evans_index": 0.5294
+        "evans_index": 0.4884
       },
       {
         "case": "data_10",
-        "evans_index": 0.6083
-      },
-      {
-        "case": "data_11",
-        "evans_index": 0.4576
-      },
-      {
-        "case": "data_12",
-        "evans_index": 0.5355
+        "evans_index": 0.3333
       },
       {
         "case": "data_13",
-        "evans_index": 0.6124
-      },
-      {
-        "case": "data_14",
-        "evans_index": 0.4739
+        "evans_index": 0.5349
       },
       {
         "case": "data_15",
-        "evans_index": 0.5986
+        "evans_index": 0.268
       },
       {
         "case": "data_2",
-        "evans_index": 0.417
+        "evans_index": 0.2695
       },
       {
         "case": "data_3",
-        "evans_index": 0.5936
+        "evans_index": 0.5714
       },
       {
         "case": "data_4",
-        "evans_index": 0.5792
+        "evans_index": 0.3873
       },
       {
         "case": "data_5",
-        "evans_index": 0.6614
+        "evans_index": 0.4104
       },
       {
         "case": "data_6",
-        "evans_index": 0.5876
+        "evans_index": 0.2657
       },
       {
         "case": "data_7",
@@ -1776,11 +1760,11 @@
       },
       {
         "case": "data_8",
-        "evans_index": 0.6311
+        "evans_index": 0.3164
       }
     ],
     "not_analyzed": [],
-    "accuracy": 0.13043478260869565
+    "accuracy": 0.2391304347826087
   },
   "known_hydrocephalus_cases": [
     "000235496D",

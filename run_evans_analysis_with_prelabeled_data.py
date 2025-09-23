@@ -165,13 +165,31 @@ def create_brain_mask_from_original(original_path: str, output_path: str) -> boo
     except Exception as e:
         return False
 
-def merge_left_right_ventricles(left_path: str, right_path: str, output_path: str) -> bool:
+def merge_left_right_ventricles(left_path: str, right_path: str, output_path: str, dataset_name: str = "") -> bool:
     """
     合併左右腦室遮罩為單一檔案
     """
     try:
         import SimpleITK as sitk
         import numpy as np
+        import os
+
+        # 檢查檔案是否存在
+        if not os.path.exists(left_path):
+            print(f"❌ {dataset_name}: 左腦室檔案不存在: {left_path}")
+            return False
+        if not os.path.exists(right_path):
+            print(f"❌ {dataset_name}: 右腦室檔案不存在: {right_path}")
+            return False
+
+        # 檢查檔案大小
+        left_size = os.path.getsize(left_path)
+        right_size = os.path.getsize(right_path)
+        if left_size == 0 or right_size == 0:
+            print(f"❌ {dataset_name}: 檔案大小為 0 (左: {left_size}, 右: {right_size})")
+            return False
+
+        print(f"🔍 {dataset_name}: 嘗試讀取左右腦室檔案...")
 
         # 讀取左右腦室
         left_img = sitk.ReadImage(left_path)
@@ -179,14 +197,35 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
 
         # 檢查影像尺寸是否一致
         if left_img.GetSize() != right_img.GetSize():
+            print(f"❌ {dataset_name}: 左右腦室影像尺寸不一致 (左: {left_img.GetSize()}, 右: {right_img.GetSize()})")
             return False
 
         # 轉換為 numpy 進行合併
         left_array = sitk.GetArrayFromImage(left_img)
         right_array = sitk.GetArrayFromImage(right_img)
 
+        # 檢查陣列資料
+        left_unique = np.unique(left_array)
+        right_unique = np.unique(right_array)
+        left_nonzero = np.count_nonzero(left_array)
+        right_nonzero = np.count_nonzero(right_array)
+
+        print(f"🔍 {dataset_name}: 左腦室值 {left_unique}, 非零數 {left_nonzero}")
+        print(f"🔍 {dataset_name}: 右腦室值 {right_unique}, 非零數 {right_nonzero}")
+
+        if left_nonzero == 0 and right_nonzero == 0:
+            print(f"❌ {dataset_name}: 左右腦室都是空的遮罩")
+            return False
+
         # 直接進行邏輯 OR (因為原檔案已經是二進制的 0/1)
         merged_array = np.logical_or(left_array > 0.5, right_array > 0.5).astype(np.uint8)
+        merged_nonzero = np.count_nonzero(merged_array)
+
+        print(f"🔍 {dataset_name}: 合併後非零數 {merged_nonzero}")
+
+        if merged_nonzero == 0:
+            print(f"❌ {dataset_name}: 合併後遮罩為空")
+            return False
 
         # 轉回 SimpleITK 影像
         merged = sitk.GetImageFromArray(merged_array)
@@ -194,14 +233,16 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
 
         # 保存結果
         sitk.WriteImage(merged, output_path)
+        print(f"✅ {dataset_name}: 合併完成，保存至 {output_path}")
         return True
 
     except Exception as e:
+        print(f"❌ {dataset_name}: 合併失敗 - {str(e)}")
         return False
 
-def find_best_ventricle_segment(nii_path: str, max_reasonable_width: int = 200) -> Dict:
+def find_frontal_horns_segment(nii_path: str, max_reasonable_width: int = 200) -> Dict:
     """
-    找出腦室的最佳測量段（從現有的 notebook 程式碼複製）
+    找出側腦室前角的測量段 - 簡化版本，專注於 Z 軸定位
     """
     img = nib.load(nii_path)
     mask_data = img.get_fdata()
@@ -216,7 +257,77 @@ def find_best_ventricle_segment(nii_path: str, max_reasonable_width: int = 200) 
         print(f"❌ 腦室遮罩完全為空")
         return best
 
-    suspicious_segments = []
+    # 找出腦室的 Z 軸範圍
+    z_coords = []
+    for z in range(Z):
+        if np.count_nonzero(binary[:, :, z]) > 0:
+            z_coords.append(z)
+
+    if not z_coords:
+        return best
+
+    z_min, z_max = min(z_coords), max(z_coords)
+    z_range = z_max - z_min
+
+    # 前角區域：Z 軸中前部 (30%-60%)
+    if z_range > 0:
+        target_z_start = int(z_min + z_range * 0.3)
+        target_z_end = int(z_min + z_range * 0.6)
+    else:
+        target_z_start = target_z_end = z_min
+
+    # 在目標區域尋找最寬的腦室段 - 限制在Y軸上半部（前角位置）
+    y_mid = Y // 2  # Y軸中點
+
+    for z in range(target_z_start, min(target_z_end + 1, Z)):
+        slice_ = binary[:, :, z]
+
+        if np.count_nonzero(slice_) == 0:
+            continue
+
+        # 只搜尋Y軸中點以上的區域（前角通常在上半部）
+        for y in range(0, y_mid):
+            col = slice_[:, y]
+            xs = np.where(col > 0)[0]
+
+            if xs.size < 2:
+                continue
+
+            x1, x2 = xs.min(), xs.max()
+            width = x2 - x1
+
+            # 檢查寬度合理性
+            if width > max_reasonable_width or width < 5:
+                continue
+
+            # 檢查佔有率
+            occupancy = col[x1:x2+1].sum() / (width + 1) if width > 0 else 0
+
+            # 如果這個段比目前最佳的更寬，就更新
+            if width > best['width']:
+                best.update({
+                    'width': int(width),
+                    'z': int(z),
+                    'y': int(y),
+                    'x1': int(x1),
+                    'x2': int(x2),
+                    'occupancy': float(occupancy)
+                })
+
+    # 調試資訊
+    if best['width'] == 0:
+        print(f"❌ 在前角區域找不到有效段，Z範圍: {target_z_start}-{target_z_end}, Y範圍: 0-{y_mid}")
+        # 回退到全域搜尋最寬段
+        return find_widest_segment_fallback(binary, max_reasonable_width)
+    else:
+        print(f"✅ 找到前角段: 寬度={best['width']}, Z={best['z']}, Y={best['y']} (上半部)")
+
+    return best
+
+def find_widest_segment_fallback(binary, max_reasonable_width):
+    """回退方法：找最寬的腦室段"""
+    best = {'width': 0, 'z': None, 'y': None, 'x1': None, 'x2': None, 'occupancy': 0}
+    X, Y, Z = binary.shape
 
     for z in range(Z):
         slice_ = binary[:, :, z]
@@ -227,23 +338,12 @@ def find_best_ventricle_segment(nii_path: str, max_reasonable_width: int = 200) 
                 continue
             x1, x2 = xs.min(), xs.max()
             width = x2 - x1
-            if width <= best['width']:
-                continue
 
-            # 檢查寬度是否合理
-            if width > max_reasonable_width:
-                suspicious_segments.append({
-                    'width': width, 'z': z, 'y': y, 'x1': x1, 'x2': x2
-                })
+            if width <= best['width'] or width > max_reasonable_width:
                 continue
 
             occupancy = col[x1:x2+1].sum() / (width + 1)
-            # 對於已標記的腦室，不設 occupancy 閾值限制
             best.update({'width': int(width), 'z': int(z), 'y': int(y), 'x1': int(x1), 'x2': int(x2), 'occupancy': float(occupancy)})
-
-    # 調試資訊
-    if best['width'] == 0:
-        print(f"❌ 找不到有效腦室段，總像素: {total_pixels}, 可疑段數: {len(suspicious_segments)}")
 
     return best
 
@@ -343,7 +443,8 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
         success = merge_left_right_ventricles(
             paths["ventricle_left"],
             paths["ventricle_right"],
-            ventricle_mask_path
+            ventricle_mask_path,
+            dataset_name
         )
         if not success:
             return None
@@ -357,9 +458,9 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
             return None
 
     try:
-        # 找出最佳腦室段
-        print("🔍 尋找最佳腦室測量段...")
-        ventricle_segment = find_best_ventricle_segment(ventricle_mask_path)
+        # 找出側腦室前角位置 - Evans Index 標準測量點
+        print("🔍 尋找側腦室前角測量段...")
+        ventricle_segment = find_frontal_horns_segment(ventricle_mask_path)
 
         if ventricle_segment['width'] == 0:
             print(f"❌ 在 {dataset_name} 中找不到有效的腦室段")
@@ -405,6 +506,7 @@ def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] 
 
 
     results = {}
+    failed_cases = []
     successful = 0
     failed = 0
 
@@ -414,21 +516,30 @@ def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] 
             results[dataset] = result
             successful += 1
         else:
+            failed_cases.append(dataset)
             failed += 1
 
     print(f"\n分析完成: 成功 {successful}, 失敗 {failed}")
+    if failed_cases:
+        print(f"失敗案例: {failed_cases}")
+
+    # 將失敗案例加入結果中以便報告顯示
+    results["_failed_cases"] = failed_cases
 
     # 顯示統計摘要
-    if results:
-        evans_indices = [r["evans_analysis"]["evans_index"] for r in results.values()]
-        avg_evans = np.mean(evans_indices)
-        high_risk_count = sum(1 for r in results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "高")
-        medium_risk_count = sum(1 for r in results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "中")
+    if results and len(results) > 1:  # 確保有實際結果（不只是 _failed_cases）
+        # 排除特殊鍵
+        actual_results = {k: v for k, v in results.items() if not k.startswith('_')}
+        if actual_results:
+            evans_indices = [r["evans_analysis"]["evans_index"] for r in actual_results.values()]
+            avg_evans = np.mean(evans_indices)
+            high_risk_count = sum(1 for r in actual_results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "高")
+            medium_risk_count = sum(1 for r in actual_results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "中")
 
-        print(f"\n📊 統計摘要:")
-        print(f"   平均 Evans Index: {avg_evans:.4f}")
-        print(f"   腦室擴大案例: {high_risk_count}/{len(results)} ({high_risk_count/len(results)*100:.1f}%)")
-        print(f"   可能/早期擴大: {medium_risk_count}/{len(results)} ({medium_risk_count/len(results)*100:.1f}%)")
+            print(f"\n📊 統計摘要:")
+            print(f"   平均 Evans Index: {avg_evans:.4f}")
+            print(f"   腦室擴大案例: {high_risk_count}/{len(actual_results)} ({high_risk_count/len(actual_results)*100:.1f}%)")
+            print(f"   可能/早期擴大: {medium_risk_count}/{len(actual_results)} ({medium_risk_count/len(actual_results)*100:.1f}%)")
 
     return results
 
@@ -450,8 +561,11 @@ def validate_results_against_reference(results: Dict, known_hydrocephalus: List[
     """
     驗證分析結果與已知臨床診斷的一致性
     """
+    # 排除特殊鍵來計算實際分析的案例數
+    actual_results_count = len([k for k in results.keys() if not k.startswith('_')])
+
     validation = {
-        "total_analyzed": len(results),
+        "total_analyzed": actual_results_count,
         "known_hydrocephalus_count": len(known_hydrocephalus),
         "hydrocephalus_correctly_identified": 0,
         "normal_correctly_identified": 0,
@@ -479,6 +593,10 @@ def validate_results_against_reference(results: Dict, known_hydrocephalus: List[
 
     # 檢查應該是正常的案例
     for case, result in results.items():
+        # 跳過特殊鍵
+        if case.startswith('_'):
+            continue
+
         if case not in known_hydrocephalus:  # 應該是正常案例
             if result["evans_analysis"]["hydrocephalus_risk"] == "低":
                 validation["normal_correctly_identified"] += 1
@@ -503,35 +621,45 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
         f.write("# Evans Index 分析報告\n\n")
         f.write(f"📅 分析時間: {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
-        if not results:
+        # 分離失敗案例和成功結果
+        failed_cases = results.get("_failed_cases", [])
+        actual_results = {k: v for k, v in results.items() if not k.startswith('_')}
+
+        if not actual_results:
             f.write("❌ 沒有成功分析的資料集\n")
+            if failed_cases:
+                f.write(f"\n### ❌ 分析失敗案例 ({len(failed_cases)} 個)\n\n")
+                for case in failed_cases:
+                    f.write(f"- {case}\n")
             return
 
         # 統計摘要
-        evans_indices = [r["evans_analysis"]["evans_index"] for r in results.values()]
+        evans_indices = [r["evans_analysis"]["evans_index"] for r in actual_results.values()]
         avg_evans = sum(evans_indices) / len(evans_indices)
-        high_risk_count = sum(1 for r in results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "高")
-        medium_risk_count = sum(1 for r in results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "中")
-        normal_count = sum(1 for r in results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "低")
+        high_risk_count = sum(1 for r in actual_results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "高")
+        medium_risk_count = sum(1 for r in actual_results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "中")
+        normal_count = sum(1 for r in actual_results.values() if r["evans_analysis"]["hydrocephalus_risk"] == "低")
 
         f.write("## 📊 統計摘要\n\n")
-        f.write(f"- **總共分析案例**: {len(results)} 個\n")
+        f.write(f"- **總共分析案例**: {len(actual_results)} 個\n")
+        if failed_cases:
+            f.write(f"- **分析失敗案例**: {len(failed_cases)} 個\n")
         f.write(f"- **平均 Evans Index**: {avg_evans:.4f}\n")
-        f.write(f"- **正常範圍 (≤ 0.25)**: {normal_count}/{len(results)} ({normal_count/len(results)*100:.1f}%)\n")
-        f.write(f"- **可能/早期擴大 (0.25-0.30)**: {medium_risk_count}/{len(results)} ({medium_risk_count/len(results)*100:.1f}%)\n")
-        f.write(f"- **腦室擴大 (> 0.30)**: {high_risk_count}/{len(results)} ({high_risk_count/len(results)*100:.1f}%)\n\n")
+        f.write(f"- **正常範圍 (≤ 0.25)**: {normal_count}/{len(actual_results)} ({normal_count/len(actual_results)*100:.1f}%)\n")
+        f.write(f"- **可能/早期擴大 (0.25-0.30)**: {medium_risk_count}/{len(actual_results)} ({medium_risk_count/len(actual_results)*100:.1f}%)\n")
+        f.write(f"- **腦室擴大 (> 0.30)**: {high_risk_count}/{len(actual_results)} ({high_risk_count/len(actual_results)*100:.1f}%)\n\n")
 
         # 分類統計
-        normal_cases = [k for k, v in results.items() if v["evans_analysis"]["hydrocephalus_risk"] == "低"]
-        medium_cases = [k for k, v in results.items() if v["evans_analysis"]["hydrocephalus_risk"] == "中"]
-        high_cases = [k for k, v in results.items() if v["evans_analysis"]["hydrocephalus_risk"] == "高"]
+        normal_cases = [k for k, v in actual_results.items() if v["evans_analysis"]["hydrocephalus_risk"] == "低"]
+        medium_cases = [k for k, v in actual_results.items() if v["evans_analysis"]["hydrocephalus_risk"] == "中"]
+        high_cases = [k for k, v in actual_results.items() if v["evans_analysis"]["hydrocephalus_risk"] == "高"]
 
         f.write("## 🟢 正常範圍案例\n\n")
         if normal_cases:
             f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 |\n")
             f.write("|------|-------------|----------|----------|\n")
             for case in sorted(normal_cases):
-                r = results[case]
+                r = actual_results[case]
                 ei = r["evans_analysis"]["evans_index"]
                 vw = r["evans_analysis"]["ventricle_width"]
                 sw = r["evans_analysis"]["skull_width"]
@@ -544,7 +672,7 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
             f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 臨床意義 |\n")
             f.write("|------|-------------|----------|----------|----------|\n")
             for case in sorted(medium_cases):
-                r = results[case]
+                r = actual_results[case]
                 ei = r["evans_analysis"]["evans_index"]
                 vw = r["evans_analysis"]["ventricle_width"]
                 sw = r["evans_analysis"]["skull_width"]
@@ -558,7 +686,7 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
             f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 臨床意義 |\n")
             f.write("|------|-------------|----------|----------|----------|\n")
             for case in sorted(high_cases):
-                r = results[case]
+                r = actual_results[case]
                 ei = r["evans_analysis"]["evans_index"]
                 vw = r["evans_analysis"]["ventricle_width"]
                 sw = r["evans_analysis"]["skull_width"]
@@ -583,6 +711,27 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
             if validation['not_analyzed']:
                 f.write(f"- **未分析案例**: {len(validation['not_analyzed'])} 個\n")
 
+            # 詳細顯示已知水腦症案例的預測結果
+            f.write("\n### 📋 已知水腦症案例預測狀況\n\n")
+            f.write("| 案例 | Evans Index | 預測結果 | 實際狀況 | 狀態 |\n")
+            f.write("|------|-------------|----------|----------|------|\n")
+
+            # 使用驗證結果中的已知案例清單
+            known_cases = [
+                "000235496D", "000206288G", "000152785B",
+                "000137208D", "000096384I", "000087554H"
+            ]
+
+            for case in known_cases:
+                if case in results:
+                    r = actual_results[case]
+                    evans_index = r["evans_analysis"]["evans_index"]
+                    predicted = r["evans_analysis"]["hydrocephalus_risk"]
+                    status = "✅ 正確" if predicted == "高" else "❌ 漏報"
+                    f.write(f"| {case} | {evans_index:.4f} | {predicted} 風險 | 有水腦症 | {status} |\n")
+                else:
+                    f.write(f"| {case} | - | 未分析 | 有水腦症 | ❌ 未分析 |\n")
+
         # 說明
         f.write("\n## 📖 說明\n\n")
         f.write("- **Evans Index**: 腦室寬度與顱骨寬度的比值\n")
@@ -590,6 +739,14 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
         f.write("- **可能/早期腦室擴大**: 0.25-0.30\n")
         f.write("- **腦室擴大**: > 0.30\n")
         f.write("- **測量方法**: 在相同 Z 切片上測量腦室和顱骨的最大寬度\n\n")
+
+        # 失敗案例清單（如果有的話）
+        if failed_cases:
+            f.write("## ❌ 分析失敗案例\n\n")
+            f.write(f"以下 {len(failed_cases)} 個案例分析失敗:\n\n")
+            for case in sorted(failed_cases):
+                f.write(f"- {case}\n")
+            f.write("\n**失敗原因可能包括**: 缺少必要檔案、腦室遮罩問題、或測量參數超出合理範圍\n\n")
 
 if __name__ == "__main__":
     # 設定標記資料的路徑
