@@ -1,0 +1,1600 @@
+{
+  "analysis_results": {
+    "000016209E": {
+      "dataset": "000016209E",
+      "ventricle_segment": {
+        "width": 93,
+        "z": 13,
+        "y": 86,
+        "x1": 24,
+        "x2": 117,
+        "occupancy": 0.8085106382978723
+      },
+      "skull_segment": {
+        "width": 254,
+        "x1": 69,
+        "x2": 323,
+        "occupancy": 1.0,
+        "z": 13,
+        "y": 184
+      },
+      "evans_analysis": {
+        "evans_index": 0.3661,
+        "ventricle_width": 93,
+        "skull_width": 254,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000016209E/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000016209E/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000016209E/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000016209E/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000016209E/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000024116H": {
+      "dataset": "000024116H",
+      "ventricle_segment": {
+        "width": 84,
+        "z": 17,
+        "y": 316,
+        "x1": 210,
+        "x2": 294,
+        "occupancy": 0.9294117647058824
+      },
+      "skull_segment": {
+        "width": 255,
+        "x1": 122,
+        "x2": 377,
+        "occupancy": 1.0,
+        "z": 17,
+        "y": 209
+      },
+      "evans_analysis": {
+        "evans_index": 0.3294,
+        "ventricle_width": 84,
+        "skull_width": 255,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000024116H/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000024116H/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000024116H/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000024116H/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000024116H/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000051833C": {
+      "dataset": "000051833C",
+      "ventricle_segment": {
+        "width": 79,
+        "z": 23,
+        "y": 205,
+        "x1": 210,
+        "x2": 289,
+        "occupancy": 0.8
+      },
+      "skull_segment": {
+        "width": 268,
+        "x1": 116,
+        "x2": 384,
+        "occupancy": 1.0,
+        "z": 23,
+        "y": 208
+      },
+      "evans_analysis": {
+        "evans_index": 0.2948,
+        "ventricle_width": 79,
+        "skull_width": 268,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000051833C/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000051833C/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000051833C/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000051833C/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000051833C/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000072318C": {
+      "dataset": "000072318C",
+      "ventricle_segment": {
+        "width": 130,
+        "z": 20,
+        "y": 186,
+        "x1": 186,
+        "x2": 316,
+        "occupancy": 0.8091603053435115
+      },
+      "skull_segment": {
+        "width": 270,
+        "x1": 115,
+        "x2": 385,
+        "occupancy": 1.0,
+        "z": 20,
+        "y": 207
+      },
+      "evans_analysis": {
+        "evans_index": 0.4815,
+        "ventricle_width": 130,
+        "skull_width": 270,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000072318C/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000072318C/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000072318C/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000072318C/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000072318C/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000189105A": {
+      "dataset": "000189105A",
+      "ventricle_segment": {
+        "width": 63,
+        "z": 21,
+        "y": 211,
+        "x1": 230,
+        "x2": 293,
+        "occupancy": 0.875
+      },
+      "skull_segment": {
+        "width": 265,
+        "x1": 118,
+        "x2": 383,
+        "occupancy": 1.0,
+        "z": 21,
+        "y": 207
+      },
+      "evans_analysis": {
+        "evans_index": 0.2377,
+        "ventricle_width": 63,
+        "skull_width": 265,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000189105A/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000189105A/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000189105A/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000189105A/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000189105A/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000225351C": {
+      "dataset": "000225351C",
+      "ventricle_segment": {
+        "width": 90,
+        "z": 22,
+        "y": 236,
+        "x1": 182,
+        "x2": 272,
+        "occupancy": 0.8241758241758241
+      },
+      "skull_segment": {
+        "width": 255,
+        "x1": 99,
+        "x2": 354,
+        "occupancy": 1.0,
+        "z": 22,
+        "y": 254
+      },
+      "evans_analysis": {
+        "evans_index": 0.3529,
+        "ventricle_width": 90,
+        "skull_width": 255,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000225351C/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000225351C/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000225351C/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000225351C/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000225351C/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000227587I": {
+      "dataset": "000227587I",
+      "ventricle_segment": {
+        "width": 103,
+        "z": 18,
+        "y": 201,
+        "x1": 199,
+        "x2": 302,
+        "occupancy": 0.8461538461538461
+      },
+      "skull_segment": {
+        "width": 257,
+        "x1": 126,
+        "x2": 383,
+        "occupancy": 1.0,
+        "z": 18,
+        "y": 206
+      },
+      "evans_analysis": {
+        "evans_index": 0.4008,
+        "ventricle_width": 103,
+        "skull_width": 257,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000227587I/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000227587I/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000227587I/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000227587I/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000227587I/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000432142A": {
+      "dataset": "000432142A",
+      "ventricle_segment": {
+        "width": 35,
+        "z": 19,
+        "y": 282,
+        "x1": 230,
+        "x2": 265,
+        "occupancy": 0.8055555555555556
+      },
+      "skull_segment": {
+        "width": 218,
+        "x1": 134,
+        "x2": 352,
+        "occupancy": 1.0,
+        "z": 19,
+        "y": 242
+      },
+      "evans_analysis": {
+        "evans_index": 0.1606,
+        "ventricle_width": 35,
+        "skull_width": 218,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000432142A/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000432142A/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000432142A/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000432142A/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000432142A/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000536372E": {
+      "dataset": "000536372E",
+      "ventricle_segment": {
+        "width": 120,
+        "z": 15,
+        "y": 42,
+        "x1": 33,
+        "x2": 153,
+        "occupancy": 0.8181818181818182
+      },
+      "skull_segment": {
+        "width": 279,
+        "x1": 130,
+        "x2": 409,
+        "occupancy": 1.0,
+        "z": 15,
+        "y": 212
+      },
+      "evans_analysis": {
+        "evans_index": 0.4301,
+        "ventricle_width": 120,
+        "skull_width": 279,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000536372E/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000536372E/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000536372E/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000536372E/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000536372E/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000882612I": {
+      "dataset": "000882612I",
+      "ventricle_segment": {
+        "width": 69,
+        "z": 24,
+        "y": 217,
+        "x1": 213,
+        "x2": 282,
+        "occupancy": 0.8142857142857143
+      },
+      "skull_segment": {
+        "width": 280,
+        "x1": 108,
+        "x2": 388,
+        "occupancy": 1.0,
+        "z": 24,
+        "y": 205
+      },
+      "evans_analysis": {
+        "evans_index": 0.2464,
+        "ventricle_width": 69,
+        "skull_width": 280,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000882612I/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000882612I/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000882612I/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000882612I/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000882612I/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000926486C": {
+      "dataset": "000926486C",
+      "ventricle_segment": {
+        "width": 76,
+        "z": 25,
+        "y": 219,
+        "x1": 204,
+        "x2": 280,
+        "occupancy": 0.8051948051948052
+      },
+      "skull_segment": {
+        "width": 290,
+        "x1": 105,
+        "x2": 395,
+        "occupancy": 1.0,
+        "z": 25,
+        "y": 224
+      },
+      "evans_analysis": {
+        "evans_index": 0.2621,
+        "ventricle_width": 76,
+        "skull_width": 290,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000926486C/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000926486C/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000926486C/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000926486C/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000926486C/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "000939247G": {
+      "dataset": "000939247G",
+      "ventricle_segment": {
+        "width": 111,
+        "z": 26,
+        "y": 213,
+        "x1": 182,
+        "x2": 293,
+        "occupancy": 0.8214285714285714
+      },
+      "skull_segment": {
+        "width": 250,
+        "x1": 112,
+        "x2": 362,
+        "occupancy": 1.0,
+        "z": 26,
+        "y": 237
+      },
+      "evans_analysis": {
+        "evans_index": 0.444,
+        "ventricle_width": 111,
+        "skull_width": 250,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/000939247G/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/000939247G/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/000939247G/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/000939247G/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/000939247G/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001040367F": {
+      "dataset": "001040367F",
+      "ventricle_segment": {
+        "width": 125,
+        "z": 21,
+        "y": 209,
+        "x1": 182,
+        "x2": 307,
+        "occupancy": 0.8015873015873016
+      },
+      "skull_segment": {
+        "width": 252,
+        "x1": 119,
+        "x2": 371,
+        "occupancy": 1.0,
+        "z": 21,
+        "y": 224
+      },
+      "evans_analysis": {
+        "evans_index": 0.496,
+        "ventricle_width": 125,
+        "skull_width": 252,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001040367F/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001040367F/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001040367F/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001040367F/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001040367F/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001043975F": {
+      "dataset": "001043975F",
+      "ventricle_segment": {
+        "width": 103,
+        "z": 22,
+        "y": 210,
+        "x1": 211,
+        "x2": 314,
+        "occupancy": 0.8076923076923077
+      },
+      "skull_segment": {
+        "width": 267,
+        "x1": 126,
+        "x2": 393,
+        "occupancy": 1.0,
+        "z": 22,
+        "y": 216
+      },
+      "evans_analysis": {
+        "evans_index": 0.3858,
+        "ventricle_width": 103,
+        "skull_width": 267,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001043975F/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001043975F/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001043975F/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001043975F/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001043975F/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001046347F": {
+      "dataset": "001046347F",
+      "ventricle_segment": {
+        "width": 98,
+        "z": 16,
+        "y": 188,
+        "x1": 183,
+        "x2": 281,
+        "occupancy": 0.8484848484848485
+      },
+      "skull_segment": {
+        "width": 258,
+        "x1": 102,
+        "x2": 360,
+        "occupancy": 1.0,
+        "z": 16,
+        "y": 198
+      },
+      "evans_analysis": {
+        "evans_index": 0.3798,
+        "ventricle_width": 98,
+        "skull_width": 258,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001046347F/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001046347F/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001046347F/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001046347F/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001046347F/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001149210H": {
+      "dataset": "001149210H",
+      "ventricle_segment": {
+        "width": 119,
+        "z": 18,
+        "y": 183,
+        "x1": 201,
+        "x2": 320,
+        "occupancy": 0.8
+      },
+      "skull_segment": {
+        "width": 310,
+        "x1": 109,
+        "x2": 419,
+        "occupancy": 1.0,
+        "z": 18,
+        "y": 195
+      },
+      "evans_analysis": {
+        "evans_index": 0.3839,
+        "ventricle_width": 119,
+        "skull_width": 310,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001149210H/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001149210H/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001149210H/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001149210H/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001149210H/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001329526G": {
+      "dataset": "001329526G",
+      "ventricle_segment": {
+        "width": 88,
+        "z": 25,
+        "y": 221,
+        "x1": 208,
+        "x2": 296,
+        "occupancy": 0.8314606741573034
+      },
+      "skull_segment": {
+        "width": 287,
+        "x1": 111,
+        "x2": 398,
+        "occupancy": 1.0,
+        "z": 25,
+        "y": 210
+      },
+      "evans_analysis": {
+        "evans_index": 0.3066,
+        "ventricle_width": 88,
+        "skull_width": 287,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001329526G/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001329526G/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001329526G/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001329526G/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001329526G/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001408865E": {
+      "dataset": "001408865E",
+      "ventricle_segment": {
+        "width": 100,
+        "z": 23,
+        "y": 205,
+        "x1": 187,
+        "x2": 287,
+        "occupancy": 0.801980198019802
+      },
+      "skull_segment": {
+        "width": 238,
+        "x1": 119,
+        "x2": 357,
+        "occupancy": 1.0,
+        "z": 23,
+        "y": 214
+      },
+      "evans_analysis": {
+        "evans_index": 0.4202,
+        "ventricle_width": 100,
+        "skull_width": 238,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001408865E/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001408865E/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001408865E/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001408865E/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001408865E/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001427829G": {
+      "dataset": "001427829G",
+      "ventricle_segment": {
+        "width": 48,
+        "z": 22,
+        "y": 248,
+        "x1": 234,
+        "x2": 282,
+        "occupancy": 0.8367346938775511
+      },
+      "skull_segment": {
+        "width": 256,
+        "x1": 127,
+        "x2": 383,
+        "occupancy": 1.0,
+        "z": 22,
+        "y": 212
+      },
+      "evans_analysis": {
+        "evans_index": 0.1875,
+        "ventricle_width": 48,
+        "skull_width": 256,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001427829G/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001427829G/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001427829G/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001427829G/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001427829G/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001544029G": {
+      "dataset": "001544029G",
+      "ventricle_segment": {
+        "width": 110,
+        "z": 26,
+        "y": 203,
+        "x1": 193,
+        "x2": 303,
+        "occupancy": 0.8018018018018018
+      },
+      "skull_segment": {
+        "width": 282,
+        "x1": 109,
+        "x2": 391,
+        "occupancy": 1.0,
+        "z": 26,
+        "y": 237
+      },
+      "evans_analysis": {
+        "evans_index": 0.3901,
+        "ventricle_width": 110,
+        "skull_width": 282,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001544029G/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001544029G/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001544029G/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001544029G/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001544029G/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001561211A": {
+      "dataset": "001561211A",
+      "ventricle_segment": {
+        "width": 60,
+        "z": 20,
+        "y": 274,
+        "x1": 190,
+        "x2": 250,
+        "occupancy": 0.819672131147541
+      },
+      "skull_segment": {
+        "width": 245,
+        "x1": 97,
+        "x2": 342,
+        "occupancy": 1.0,
+        "z": 20,
+        "y": 180
+      },
+      "evans_analysis": {
+        "evans_index": 0.2449,
+        "ventricle_width": 60,
+        "skull_width": 245,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001561211A/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001561211A/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001561211A/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001561211A/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001561211A/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001612043H": {
+      "dataset": "001612043H",
+      "ventricle_segment": {
+        "width": 124,
+        "z": 22,
+        "y": 233,
+        "x1": 176,
+        "x2": 300,
+        "occupancy": 0.8
+      },
+      "skull_segment": {
+        "width": 268,
+        "x1": 108,
+        "x2": 376,
+        "occupancy": 1.0,
+        "z": 22,
+        "y": 240
+      },
+      "evans_analysis": {
+        "evans_index": 0.4627,
+        "ventricle_width": 124,
+        "skull_width": 268,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001612043H/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001612043H/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001612043H/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001612043H/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001612043H/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001734036C": {
+      "dataset": "001734036C",
+      "ventricle_segment": {
+        "width": 69,
+        "z": 26,
+        "y": 241,
+        "x1": 211,
+        "x2": 280,
+        "occupancy": 0.8
+      },
+      "skull_segment": {
+        "width": 288,
+        "x1": 103,
+        "x2": 391,
+        "occupancy": 1.0,
+        "z": 26,
+        "y": 214
+      },
+      "evans_analysis": {
+        "evans_index": 0.2396,
+        "ventricle_width": 69,
+        "skull_width": 288,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001734036C/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001734036C/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001734036C/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001734036C/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001734036C/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001765014F": {
+      "dataset": "001765014F",
+      "ventricle_segment": {
+        "width": 33,
+        "z": 24,
+        "y": 281,
+        "x1": 230,
+        "x2": 263,
+        "occupancy": 0.8529411764705882
+      },
+      "skull_segment": {
+        "width": 278,
+        "x1": 108,
+        "x2": 386,
+        "occupancy": 1.0,
+        "z": 24,
+        "y": 204
+      },
+      "evans_analysis": {
+        "evans_index": 0.1187,
+        "ventricle_width": 33,
+        "skull_width": 278,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001765014F/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001765014F/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001765014F/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001765014F/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001765014F/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "001998293F": {
+      "dataset": "001998293F",
+      "ventricle_segment": {
+        "width": 114,
+        "z": 20,
+        "y": 203,
+        "x1": 189,
+        "x2": 303,
+        "occupancy": 0.808695652173913
+      },
+      "skull_segment": {
+        "width": 282,
+        "x1": 103,
+        "x2": 385,
+        "occupancy": 1.0,
+        "z": 20,
+        "y": 215
+      },
+      "evans_analysis": {
+        "evans_index": 0.4043,
+        "ventricle_width": 114,
+        "skull_width": 282,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/001998293F/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/001998293F/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/001998293F/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/001998293F/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/001998293F/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "002001468A": {
+      "dataset": "002001468A",
+      "ventricle_segment": {
+        "width": 21,
+        "z": 18,
+        "y": 272,
+        "x1": 259,
+        "x2": 280,
+        "occupancy": 0.8181818181818182
+      },
+      "skull_segment": {
+        "width": 234,
+        "x1": 149,
+        "x2": 383,
+        "occupancy": 1.0,
+        "z": 18,
+        "y": 213
+      },
+      "evans_analysis": {
+        "evans_index": 0.0897,
+        "ventricle_width": 21,
+        "skull_width": 234,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/002001468A/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/002001468A/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/002001468A/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/002001468A/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/002001468A/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "002003691D": {
+      "dataset": "002003691D",
+      "ventricle_segment": {
+        "width": 81,
+        "z": 24,
+        "y": 220,
+        "x1": 213,
+        "x2": 294,
+        "occupancy": 0.8048780487804879
+      },
+      "skull_segment": {
+        "width": 266,
+        "x1": 119,
+        "x2": 385,
+        "occupancy": 1.0,
+        "z": 24,
+        "y": 218
+      },
+      "evans_analysis": {
+        "evans_index": 0.3045,
+        "ventricle_width": 81,
+        "skull_width": 266,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/002003691D/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/002003691D/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/002003691D/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/002003691D/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/002003691D/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "002055710C": {
+      "dataset": "002055710C",
+      "ventricle_segment": {
+        "width": 44,
+        "z": 18,
+        "y": 312,
+        "x1": 243,
+        "x2": 287,
+        "occupancy": 0.8
+      },
+      "skull_segment": {
+        "width": 274,
+        "x1": 125,
+        "x2": 399,
+        "occupancy": 1.0,
+        "z": 18,
+        "y": 243
+      },
+      "evans_analysis": {
+        "evans_index": 0.1606,
+        "ventricle_width": 44,
+        "skull_width": 274,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/002055710C/original.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/002055710C/Ventricles.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/002055710C/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/002055710C/Ventricle_L.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/002055710C/Ventricle_R.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_1": {
+      "dataset": "data_1",
+      "ventricle_segment": {
+        "width": 60,
+        "z": 137,
+        "y": 236,
+        "x1": 223,
+        "x2": 283,
+        "occupancy": 0.8360655737704918
+      },
+      "skull_segment": {
+        "width": 175,
+        "x1": 160,
+        "x2": 335,
+        "occupancy": 0.7954545454545454,
+        "z": 137,
+        "y": 220
+      },
+      "evans_analysis": {
+        "evans_index": 0.3429,
+        "ventricle_width": 60,
+        "skull_width": 175,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_1/original_1.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_1/mask_Ventricles_1.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_1/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_1/mask_Ventricle_L_1.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_1/mask_Ventricle_R_1.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_10": {
+      "dataset": "data_10",
+      "ventricle_segment": {
+        "width": 94,
+        "z": 25,
+        "y": 294,
+        "x1": 198,
+        "x2": 292,
+        "occupancy": 0.8
+      },
+      "skull_segment": {
+        "width": 244,
+        "x1": 123,
+        "x2": 367,
+        "occupancy": 0.9591836734693877,
+        "z": 25,
+        "y": 260
+      },
+      "evans_analysis": {
+        "evans_index": 0.3852,
+        "ventricle_width": 94,
+        "skull_width": 244,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_10/original_10.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_10/mask_Ventricles_10.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_10/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_10/mask_Ventricle_L_10.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_10/mask_Ventricle_R_10.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_11": {
+      "dataset": "data_11",
+      "ventricle_segment": {
+        "width": 34,
+        "z": 22,
+        "y": 269,
+        "x1": 226,
+        "x2": 260,
+        "occupancy": 1.0
+      },
+      "skull_segment": {
+        "width": 270,
+        "x1": 107,
+        "x2": 377,
+        "occupancy": 1.0,
+        "z": 22,
+        "y": 275
+      },
+      "evans_analysis": {
+        "evans_index": 0.1259,
+        "ventricle_width": 34,
+        "skull_width": 270,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_11/original_11.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_11/mask_Ventricles_11.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_11/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_11/mask_Ventricle_L_11.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_11/mask_Ventricle_R_11.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_12": {
+      "dataset": "data_12",
+      "ventricle_segment": {
+        "width": 56,
+        "z": 30,
+        "y": 269,
+        "x1": 219,
+        "x2": 275,
+        "occupancy": 0.8421052631578947
+      },
+      "skull_segment": {
+        "width": 278,
+        "x1": 112,
+        "x2": 390,
+        "occupancy": 0.967741935483871,
+        "z": 30,
+        "y": 294
+      },
+      "evans_analysis": {
+        "evans_index": 0.2014,
+        "ventricle_width": 56,
+        "skull_width": 278,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_12/original_12.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_12/mask_Ventricles_12.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_12/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_12/mask_Ventricle_L_12.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_12/mask_Ventricle_R_12.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_13": {
+      "dataset": "data_13",
+      "ventricle_segment": {
+        "width": 70,
+        "z": 24,
+        "y": 280,
+        "x1": 215,
+        "x2": 285,
+        "occupancy": 0.8028169014084507
+      },
+      "skull_segment": {
+        "width": 251,
+        "x1": 122,
+        "x2": 373,
+        "occupancy": 1.0,
+        "z": 24,
+        "y": 277
+      },
+      "evans_analysis": {
+        "evans_index": 0.2789,
+        "ventricle_width": 70,
+        "skull_width": 251,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_13/original_13.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_13/mask_Ventricles_13.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_13/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_13/mask_Ventricle_L_13.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_13/mask_Ventricle_R_13.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_14": {
+      "dataset": "data_14",
+      "ventricle_segment": {
+        "width": 66,
+        "z": 25,
+        "y": 290,
+        "x1": 211,
+        "x2": 277,
+        "occupancy": 0.835820895522388
+      },
+      "skull_segment": {
+        "width": 264,
+        "x1": 110,
+        "x2": 374,
+        "occupancy": 1.0,
+        "z": 25,
+        "y": 266
+      },
+      "evans_analysis": {
+        "evans_index": 0.25,
+        "ventricle_width": 66,
+        "skull_width": 264,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_14/original_14.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_14/mask_Ventricles_14.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_14/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_14/mask_Ventricle_L_14.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_14/mask_Ventricle_R_14.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_15": {
+      "dataset": "data_15",
+      "ventricle_segment": {
+        "width": 95,
+        "z": 22,
+        "y": 297,
+        "x1": 212,
+        "x2": 307,
+        "occupancy": 0.84375
+      },
+      "skull_segment": {
+        "width": 288,
+        "x1": 111,
+        "x2": 399,
+        "occupancy": 0.7854671280276817,
+        "z": 22,
+        "y": 296
+      },
+      "evans_analysis": {
+        "evans_index": 0.3299,
+        "ventricle_width": 95,
+        "skull_width": 288,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_15/original_15.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_15/mask_Ventricles_15.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_15/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_15/mask_Ventricle_L_15.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_15/mask_Ventricle_R_15.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_2": {
+      "dataset": "data_2",
+      "ventricle_segment": {
+        "width": 64,
+        "z": 21,
+        "y": 263,
+        "x1": 228,
+        "x2": 292,
+        "occupancy": 0.8461538461538461
+      },
+      "skull_segment": {
+        "width": 285,
+        "x1": 112,
+        "x2": 397,
+        "occupancy": 1.0,
+        "z": 21,
+        "y": 244
+      },
+      "evans_analysis": {
+        "evans_index": 0.2246,
+        "ventricle_width": 64,
+        "skull_width": 285,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_2/original_2.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_2/mask_Ventricles_2.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_2/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_2/mask_Ventricle_L_2.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_2/mask_Ventricle_R_2.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_3": {
+      "dataset": "data_3",
+      "ventricle_segment": {
+        "width": 61,
+        "z": 129,
+        "y": 205,
+        "x1": 234,
+        "x2": 295,
+        "occupancy": 0.8064516129032258
+      },
+      "skull_segment": {
+        "width": 182,
+        "x1": 175,
+        "x2": 357,
+        "occupancy": 1.0,
+        "z": 129,
+        "y": 193
+      },
+      "evans_analysis": {
+        "evans_index": 0.3352,
+        "ventricle_width": 61,
+        "skull_width": 182,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_3/original_3.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_3/mask_Ventricles_3.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_3/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_3/mask_Ventricle_L_3.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_3/mask_Ventricle_R_3.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_4": {
+      "dataset": "data_4",
+      "ventricle_segment": {
+        "width": 74,
+        "z": 54,
+        "y": 255,
+        "x1": 201,
+        "x2": 275,
+        "occupancy": 0.8266666666666667
+      },
+      "skull_segment": {
+        "width": 204,
+        "x1": 138,
+        "x2": 342,
+        "occupancy": 0.6780487804878049,
+        "z": 54,
+        "y": 251
+      },
+      "evans_analysis": {
+        "evans_index": 0.3627,
+        "ventricle_width": 74,
+        "skull_width": 204,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_4/original_4.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_4/mask_Ventricles_4.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_4/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_4/mask_Ventricle_L_4.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_4/mask_Ventricle_R_4.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_5": {
+      "dataset": "data_5",
+      "ventricle_segment": {
+        "width": 126,
+        "z": 22,
+        "y": 303,
+        "x1": 205,
+        "x2": 331,
+        "occupancy": 0.8346456692913385
+      },
+      "skull_segment": {
+        "width": 268,
+        "x1": 133,
+        "x2": 401,
+        "occupancy": 0.929368029739777,
+        "z": 22,
+        "y": 278
+      },
+      "evans_analysis": {
+        "evans_index": 0.4701,
+        "ventricle_width": 126,
+        "skull_width": 268,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_5/original_5.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_5/mask_Ventricles_5.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_5/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_5/mask_Ventricle_L_5.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_5/mask_Ventricle_R_5.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_6": {
+      "dataset": "data_6",
+      "ventricle_segment": {
+        "width": 80,
+        "z": 25,
+        "y": 274,
+        "x1": 219,
+        "x2": 299,
+        "occupancy": 0.8024691358024691
+      },
+      "skull_segment": {
+        "width": 266,
+        "x1": 124,
+        "x2": 390,
+        "occupancy": 1.0,
+        "z": 25,
+        "y": 296
+      },
+      "evans_analysis": {
+        "evans_index": 0.3008,
+        "ventricle_width": 80,
+        "skull_width": 266,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_6/original_6.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_6/mask_Ventricles_6.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_6/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_6/mask_Ventricle_L_6.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_6/mask_Ventricle_R_6.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_7": {
+      "dataset": "data_7",
+      "ventricle_segment": {
+        "width": 61,
+        "z": 25,
+        "y": 226,
+        "x1": 227,
+        "x2": 288,
+        "occupancy": 0.8064516129032258
+      },
+      "skull_segment": {
+        "width": 274,
+        "x1": 116,
+        "x2": 390,
+        "occupancy": 0.9563636363636364,
+        "z": 25,
+        "y": 318
+      },
+      "evans_analysis": {
+        "evans_index": 0.2226,
+        "ventricle_width": 61,
+        "skull_width": 274,
+        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "hydrocephalus_risk": "低",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_7/original_7.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_7/mask_Ventricles_7.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_7/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_7/mask_Ventricle_L_7.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_7/mask_Ventricle_R_7.nii.gz",
+        "needs_merge": false
+      }
+    },
+    "data_8": {
+      "dataset": "data_8",
+      "ventricle_segment": {
+        "width": 80,
+        "z": 12,
+        "y": 159,
+        "x1": 193,
+        "x2": 273,
+        "occupancy": 0.8024691358024691
+      },
+      "skull_segment": {
+        "width": 256,
+        "x1": 102,
+        "x2": 358,
+        "occupancy": 1.0,
+        "z": 12,
+        "y": 264
+      },
+      "evans_analysis": {
+        "evans_index": 0.3125,
+        "ventricle_width": 80,
+        "skull_width": 256,
+        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "hydrocephalus_risk": "高",
+        "warnings": null
+      },
+      "files_used": {
+        "original": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_8/original_8.nii.gz",
+        "ventricles": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_8/mask_Ventricles_8.nii.gz",
+        "brain_mask": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_8/brain_mask_from_original.nii.gz",
+        "ventricle_left": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_8/mask_Ventricle_L_8.nii.gz",
+        "ventricle_right": "/Volumes/Kuro醬の1TSSD/標記好的資料/data_8/mask_Ventricle_R_8.nii.gz",
+        "needs_merge": false
+      }
+    }
+  },
+  "validation": {
+    "total_analyzed": 42,
+    "known_hydrocephalus_count": 6,
+    "hydrocephalus_correctly_identified": 0,
+    "normal_correctly_identified": 17,
+    "false_negatives": [],
+    "false_positives": [
+      {
+        "case": "000016209E",
+        "evans_index": 0.3661
+      },
+      {
+        "case": "000024116H",
+        "evans_index": 0.3294
+      },
+      {
+        "case": "000072318C",
+        "evans_index": 0.4815
+      },
+      {
+        "case": "000225351C",
+        "evans_index": 0.3529
+      },
+      {
+        "case": "000227587I",
+        "evans_index": 0.4008
+      },
+      {
+        "case": "000536372E",
+        "evans_index": 0.4301
+      },
+      {
+        "case": "000939247G",
+        "evans_index": 0.444
+      },
+      {
+        "case": "001040367F",
+        "evans_index": 0.496
+      },
+      {
+        "case": "001043975F",
+        "evans_index": 0.3858
+      },
+      {
+        "case": "001046347F",
+        "evans_index": 0.3798
+      },
+      {
+        "case": "001149210H",
+        "evans_index": 0.3839
+      },
+      {
+        "case": "001329526G",
+        "evans_index": 0.3066
+      },
+      {
+        "case": "001408865E",
+        "evans_index": 0.4202
+      },
+      {
+        "case": "001544029G",
+        "evans_index": 0.3901
+      },
+      {
+        "case": "001612043H",
+        "evans_index": 0.4627
+      },
+      {
+        "case": "001998293F",
+        "evans_index": 0.4043
+      },
+      {
+        "case": "002003691D",
+        "evans_index": 0.3045
+      },
+      {
+        "case": "data_1",
+        "evans_index": 0.3429
+      },
+      {
+        "case": "data_10",
+        "evans_index": 0.3852
+      },
+      {
+        "case": "data_15",
+        "evans_index": 0.3299
+      },
+      {
+        "case": "data_3",
+        "evans_index": 0.3352
+      },
+      {
+        "case": "data_4",
+        "evans_index": 0.3627
+      },
+      {
+        "case": "data_5",
+        "evans_index": 0.4701
+      },
+      {
+        "case": "data_6",
+        "evans_index": 0.3008
+      },
+      {
+        "case": "data_8",
+        "evans_index": 0.3125
+      }
+    ],
+    "not_analyzed": [
+      "000235496D",
+      "000206288G",
+      "000152785B",
+      "000137208D",
+      "000096384I",
+      "000087554H"
+    ],
+    "accuracy": 0.40476190476190477
+  },
+  "known_hydrocephalus_cases": [
+    "000235496D",
+    "000206288G",
+    "000152785B",
+    "000137208D",
+    "000096384I",
+    "000087554H"
+  ]
+}

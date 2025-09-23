@@ -17,8 +17,11 @@ def run_totalsegmentator(ct_path: str, output_path: str, token: str = None, task
     if task not in ["brain_structures", "ventricle_parts"]:
         raise ValueError("For hydrocephalus detection, the 'task' parameter must be either 'brain_structures' or 'ventricle_parts'")
 
+    # 使用相對於項目根目錄的路徑
+    totalseg_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "env", "bin", "TotalSegmentator")
+
     command = [
-        "TotalSegmentator",
+        totalseg_path,
         "-i", ct_path,
         "-o", output_path,
         "--task", task,

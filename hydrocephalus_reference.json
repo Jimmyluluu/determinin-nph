@@ -1,0 +1,25 @@
+{
+  "hydrocephalus_cases": {
+    "description": "已知有水腦症的病例清單",
+    "source": "臨床診斷或專家標記",
+    "cases": [
+      "000235496D",
+      "000206288G",
+      "000152785B",
+      "000137208D",
+      "000096384I",
+      "000087554H"
+    ],
+    "total_count": 6
+  },
+  "normal_cases": {
+    "description": "已知正常（無水腦症）的病例",
+    "note": "除了上述6個水腦症案例外，所有其他案例都是正常的",
+    "expected_evans_index": "≤ 0.3"
+  },
+  "validation_notes": [
+    "有水腦症的案例應該 Evans Index > 0.3",
+    "正常案例應該 Evans Index ≤ 0.3",
+    "可用於驗證 Evans Index 計算的準確性和臨床相關性"
+  ]
+}
