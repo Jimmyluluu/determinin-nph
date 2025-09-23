@@ -22,7 +22,7 @@
         "evans_index": 0.3661,
         "ventricle_width": 93,
         "skull_width": 254,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -57,7 +57,7 @@
         "evans_index": 0.3294,
         "ventricle_width": 84,
         "skull_width": 255,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -92,8 +92,8 @@
         "evans_index": 0.2948,
         "ventricle_width": 79,
         "skull_width": 268,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
-        "hydrocephalus_risk": "低",
+        "clinical_significance": "可能或早期腦室擴大 (0.25-0.30)",
+        "hydrocephalus_risk": "中",
         "warnings": null
       },
       "files_used": {
@@ -127,7 +127,7 @@
         "evans_index": 0.4815,
         "ventricle_width": 130,
         "skull_width": 270,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -162,7 +162,7 @@
         "evans_index": 0.2377,
         "ventricle_width": 63,
         "skull_width": 265,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -197,7 +197,7 @@
         "evans_index": 0.3529,
         "ventricle_width": 90,
         "skull_width": 255,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -232,7 +232,7 @@
         "evans_index": 0.4008,
         "ventricle_width": 103,
         "skull_width": 257,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -267,7 +267,7 @@
         "evans_index": 0.1606,
         "ventricle_width": 35,
         "skull_width": 218,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -302,7 +302,7 @@
         "evans_index": 0.4301,
         "ventricle_width": 120,
         "skull_width": 279,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -337,7 +337,7 @@
         "evans_index": 0.2464,
         "ventricle_width": 69,
         "skull_width": 280,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -372,8 +372,8 @@
         "evans_index": 0.2621,
         "ventricle_width": 76,
         "skull_width": 290,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
-        "hydrocephalus_risk": "低",
+        "clinical_significance": "可能或早期腦室擴大 (0.25-0.30)",
+        "hydrocephalus_risk": "中",
         "warnings": null
       },
       "files_used": {
@@ -407,7 +407,7 @@
         "evans_index": 0.444,
         "ventricle_width": 111,
         "skull_width": 250,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -442,7 +442,7 @@
         "evans_index": 0.496,
         "ventricle_width": 125,
         "skull_width": 252,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -477,7 +477,7 @@
         "evans_index": 0.3858,
         "ventricle_width": 103,
         "skull_width": 267,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -512,7 +512,7 @@
         "evans_index": 0.3798,
         "ventricle_width": 98,
         "skull_width": 258,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -547,7 +547,7 @@
         "evans_index": 0.3839,
         "ventricle_width": 119,
         "skull_width": 310,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -582,7 +582,7 @@
         "evans_index": 0.3066,
         "ventricle_width": 88,
         "skull_width": 287,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -617,7 +617,7 @@
         "evans_index": 0.4202,
         "ventricle_width": 100,
         "skull_width": 238,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -652,7 +652,7 @@
         "evans_index": 0.1875,
         "ventricle_width": 48,
         "skull_width": 256,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -687,7 +687,7 @@
         "evans_index": 0.3901,
         "ventricle_width": 110,
         "skull_width": 282,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -722,7 +722,7 @@
         "evans_index": 0.2449,
         "ventricle_width": 60,
         "skull_width": 245,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -757,7 +757,7 @@
         "evans_index": 0.4627,
         "ventricle_width": 124,
         "skull_width": 268,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -792,7 +792,7 @@
         "evans_index": 0.2396,
         "ventricle_width": 69,
         "skull_width": 288,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -827,7 +827,7 @@
         "evans_index": 0.1187,
         "ventricle_width": 33,
         "skull_width": 278,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -862,7 +862,7 @@
         "evans_index": 0.4043,
         "ventricle_width": 114,
         "skull_width": 282,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -897,7 +897,7 @@
         "evans_index": 0.0897,
         "ventricle_width": 21,
         "skull_width": 234,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -932,7 +932,7 @@
         "evans_index": 0.3045,
         "ventricle_width": 81,
         "skull_width": 266,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -967,7 +967,7 @@
         "evans_index": 0.1606,
         "ventricle_width": 44,
         "skull_width": 274,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -1002,7 +1002,7 @@
         "evans_index": 0.3429,
         "ventricle_width": 60,
         "skull_width": 175,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1037,7 +1037,7 @@
         "evans_index": 0.3852,
         "ventricle_width": 94,
         "skull_width": 244,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1072,7 +1072,7 @@
         "evans_index": 0.1259,
         "ventricle_width": 34,
         "skull_width": 270,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -1107,7 +1107,7 @@
         "evans_index": 0.2014,
         "ventricle_width": 56,
         "skull_width": 278,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -1142,8 +1142,8 @@
         "evans_index": 0.2789,
         "ventricle_width": 70,
         "skull_width": 251,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
-        "hydrocephalus_risk": "低",
+        "clinical_significance": "可能或早期腦室擴大 (0.25-0.30)",
+        "hydrocephalus_risk": "中",
         "warnings": null
       },
       "files_used": {
@@ -1177,7 +1177,7 @@
         "evans_index": 0.25,
         "ventricle_width": 66,
         "skull_width": 264,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -1212,7 +1212,7 @@
         "evans_index": 0.3299,
         "ventricle_width": 95,
         "skull_width": 288,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1247,7 +1247,7 @@
         "evans_index": 0.2246,
         "ventricle_width": 64,
         "skull_width": 285,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -1282,7 +1282,7 @@
         "evans_index": 0.3352,
         "ventricle_width": 61,
         "skull_width": 182,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1317,7 +1317,7 @@
         "evans_index": 0.3627,
         "ventricle_width": 74,
         "skull_width": 204,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1352,7 +1352,7 @@
         "evans_index": 0.4701,
         "ventricle_width": 126,
         "skull_width": 268,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1387,7 +1387,7 @@
         "evans_index": 0.3008,
         "ventricle_width": 80,
         "skull_width": 266,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1422,7 +1422,7 @@
         "evans_index": 0.2226,
         "ventricle_width": 61,
         "skull_width": 274,
-        "clinical_significance": "正常範圍 (≤ 0.3)",
+        "clinical_significance": "正常範圍 (≤ 0.25)",
         "hydrocephalus_risk": "低",
         "warnings": null
       },
@@ -1457,7 +1457,7 @@
         "evans_index": 0.3125,
         "ventricle_width": 80,
         "skull_width": 256,
-        "clinical_significance": "可能有腦水腫 (指數 > 0.3)",
+        "clinical_significance": "腦室擴大 (> 0.30)",
         "hydrocephalus_risk": "高",
         "warnings": null
       },
@@ -1475,7 +1475,7 @@
     "total_analyzed": 42,
     "known_hydrocephalus_count": 6,
     "hydrocephalus_correctly_identified": 0,
-    "normal_correctly_identified": 17,
+    "normal_correctly_identified": 14,
     "false_negatives": [],
     "false_positives": [
       {
@@ -1485,6 +1485,10 @@
       {
         "case": "000024116H",
         "evans_index": 0.3294
+      },
+      {
+        "case": "000051833C",
+        "evans_index": 0.2948
       },
       {
         "case": "000072318C",
@@ -1501,6 +1505,10 @@
       {
         "case": "000536372E",
         "evans_index": 0.4301
+      },
+      {
+        "case": "000926486C",
+        "evans_index": 0.2621
       },
       {
         "case": "000939247G",
@@ -1555,6 +1563,10 @@
         "evans_index": 0.3852
       },
       {
+        "case": "data_13",
+        "evans_index": 0.2789
+      },
+      {
         "case": "data_15",
         "evans_index": 0.3299
       },
@@ -1587,7 +1599,7 @@
       "000096384I",
       "000087554H"
     ],
-    "accuracy": 0.40476190476190477
+    "accuracy": 0.3333333333333333
   },
   "known_hydrocephalus_cases": [
     "000235496D",
