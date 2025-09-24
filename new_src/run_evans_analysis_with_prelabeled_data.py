@@ -9,6 +9,9 @@ import json
 from typing import Dict, List, Optional
 import glob
 
+# 導入可視化截圖生成函數
+from generate_evans_slices import generate_evans_slice_screenshot
+
 def find_available_datasets(base_path: str) -> List[str]:
     """
     找出所有可用的標記資料集（包括 data_X 和病例號格式）
@@ -255,9 +258,15 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
         print(f"❌ {dataset_name}: 合併失敗 - {str(e)}")
         return False
 
-def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reasonable_width: int = 200) -> Dict:
+def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reasonable_width: int = 200, occupancy_threshold: float = 0.7) -> Dict:
     """
     找出側腦室前角的測量段 - 根據資料來源適應不同座標系統
+
+    Parameters:
+        nii_path (str): 腦室遮罩路徑
+        dataset_name (str): 資料集名稱，用於判斷座標系統
+        max_reasonable_width (int): 最大合理寬度，預設200
+        occupancy_threshold (float): 佔有率閾值，預設0.7
     """
     img = nib.load(nii_path)
     mask_data = img.get_fdata()
@@ -329,8 +338,8 @@ def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reason
             # 檢查佔有率
             occupancy = col[x1:x2+1].sum() / (width + 1) if width > 0 else 0
 
-            # 如果這個段比目前最佳的更寬，就更新
-            if width > best['width']:
+            # 只有佔有率達到閾值且寬度更寬時才更新
+            if occupancy >= occupancy_threshold and width > best['width']:
                 best.update({
                     'width': int(width),
                     'z': int(z),
@@ -344,13 +353,13 @@ def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reason
     if best['width'] == 0:
         print(f"❌ 在前角區域找不到有效段，Z範圍: {target_z_start}-{target_z_end}, Y範圍: {search_description}")
         # 回退到全域搜尋最寬段
-        return find_widest_segment_fallback(binary, max_reasonable_width)
+        return find_widest_segment_fallback(binary, max_reasonable_width, occupancy_threshold)
     else:
         print(f"✅ 找到前角段: 寬度={best['width']}, Z={best['z']}, Y={best['y']} ({search_description})")
 
     return best
 
-def find_widest_segment_fallback(binary, max_reasonable_width):
+def find_widest_segment_fallback(binary, max_reasonable_width, occupancy_threshold=0.7):
     """回退方法：找最寬的腦室段"""
     best = {'width': 0, 'z': None, 'y': None, 'x1': None, 'x2': None, 'occupancy': 0}
     X, Y, Z = binary.shape
@@ -369,7 +378,10 @@ def find_widest_segment_fallback(binary, max_reasonable_width):
                 continue
 
             occupancy = col[x1:x2+1].sum() / (width + 1)
-            best.update({'width': int(width), 'z': int(z), 'y': int(y), 'x1': int(x1), 'x2': int(x2), 'occupancy': float(occupancy)})
+
+            # 只有佔有率達到閾值才更新
+            if occupancy >= occupancy_threshold:
+                best.update({'width': int(width), 'z': int(z), 'y': int(y), 'x1': int(x1), 'x2': int(x2), 'occupancy': float(occupancy)})
 
     return best
 
@@ -458,9 +470,16 @@ def calculate_evans_index(ventricle_width: float, skull_width: float) -> Dict:
 
     return result
 
-def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional[Dict]:
+def run_prelabeled_evans_analysis(base_path: str, dataset_name: str, occupancy_threshold: float = 0.7, generate_screenshots: bool = True, screenshot_output_dir: str = "evans_slices") -> Optional[Dict]:
     """
     使用標記好的資料執行 Evans Index 分析
+
+    Parameters:
+        base_path (str): 資料基礎路徑
+        dataset_name (str): 資料集名稱
+        occupancy_threshold (float): 佔有率閾值，預設0.7
+        generate_screenshots (bool): 是否生成可視化截圖，預設True
+        screenshot_output_dir (str): 截圖輸出目錄，預設"evans_slices"
     """
 
     # 檢查檔案路徑
@@ -492,7 +511,7 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
     try:
         # 找出側腦室前角位置 - Evans Index 標準測量點
         print("🔍 尋找側腦室前角測量段...")
-        ventricle_segment = find_frontal_horns_segment(ventricle_mask_path, dataset_name)
+        ventricle_segment = find_frontal_horns_segment(ventricle_mask_path, dataset_name, occupancy_threshold=occupancy_threshold)
 
         if ventricle_segment['width'] == 0:
             print(f"❌ 在 {dataset_name} 中找不到有效的腦室段")
@@ -523,15 +542,45 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
             }
         }
 
+        # 生成可視化截圖
+        if generate_screenshots:
+            try:
+                print(f"🖼️ 正在為 {dataset_name} 生成可視化截圖...")
+                success = generate_evans_slice_screenshot(
+                    case_name=dataset_name,
+                    original_path=paths["original"],
+                    ventricle_path=ventricle_mask_path,
+                    brain_mask_path=brain_mask_path,
+                    ventricle_coords=ventricle_segment,
+                    skull_coords=skull_segment,
+                    output_dir=screenshot_output_dir
+                )
+
+                if success:
+                    screenshot_path = os.path.join(screenshot_output_dir, f'{dataset_name}_evans_slice.png')
+                    results["screenshot_path"] = screenshot_path
+                    print(f"✅ 截圖已生成: {screenshot_path}")
+                else:
+                    print(f"⚠️ {dataset_name}: 截圖生成失敗")
+
+            except Exception as screenshot_error:
+                print(f"❌ {dataset_name}: 截圖生成出錯 - {str(screenshot_error)}")
 
         return results
 
     except Exception as e:
         return None
 
-def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] = None) -> Dict:
+def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] = None, occupancy_threshold: float = 0.7, generate_screenshots: bool = True, screenshot_output_dir: str = "evans_slices") -> Dict:
     """
     批次分析多個標記資料集
+
+    Parameters:
+        base_path (str): 資料基礎路徑
+        datasets (Optional[List[str]]): 指定要分析的資料集，若為None則分析所有可用資料集
+        occupancy_threshold (float): 佔有率閾值，預設0.7
+        generate_screenshots (bool): 是否生成可視化截圖，預設True
+        screenshot_output_dir (str): 截圖輸出目錄，預設"evans_slices"
     """
     if datasets is None:
         datasets = find_available_datasets(base_path)
@@ -543,7 +592,7 @@ def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] 
     failed = 0
 
     for dataset in datasets:
-        result = run_prelabeled_evans_analysis(base_path, dataset)
+        result = run_prelabeled_evans_analysis(base_path, dataset, occupancy_threshold, generate_screenshots, screenshot_output_dir)
         if result:
             results[dataset] = result
             successful += 1
@@ -806,8 +855,20 @@ if __name__ == "__main__":
     available_datasets = find_available_datasets(LABELED_DATA_PATH)
     print(f"發現 {len(available_datasets)} 個資料集")
 
-    # 執行批次分析
-    batch_results = batch_analyze_prelabeled_data(LABELED_DATA_PATH)
+    # 設定佔有率閾值 - 只有佔有率 >= 此值的腦室段才會被考慮
+    OCCUPANCY_THRESHOLD = 0.7  # 可以根據需要調整此值 (0.0-1.0)
+
+    # 設定截圖輸出目錄
+    SCREENSHOT_OUTPUT_DIR = "evans_slices"
+    os.makedirs(SCREENSHOT_OUTPUT_DIR, exist_ok=True)
+
+    # 執行批次分析（包含自動截圖生成）
+    batch_results = batch_analyze_prelabeled_data(
+        LABELED_DATA_PATH,
+        occupancy_threshold=OCCUPANCY_THRESHOLD,
+        generate_screenshots=True,
+        screenshot_output_dir=SCREENSHOT_OUTPUT_DIR
+    )
 
     # 載入已知水腦症參考清單
     known_hydrocephalus = load_hydrocephalus_reference()
@@ -855,4 +916,5 @@ if __name__ == "__main__":
     generate_markdown_report(batch_results, md_file, validation if known_hydrocephalus else None)
     print(f"Markdown 報告已保存: {md_file}")
 
-    print(f"\n所有結果檔案已保存在 {result_dir}/ 資料夾")
+    print(f"\n📁 所有結果檔案已保存在 {result_dir}/ 資料夾")
+    print(f"🖼️ 可視化截圖已保存在 {SCREENSHOT_OUTPUT_DIR}/ 資料夾")

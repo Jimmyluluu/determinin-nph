@@ -50,27 +50,27 @@ def generate_evans_slice_screenshot(case_name, original_path, ventricle_path, br
         # 畫出腦室測量線
         v_x1, v_x2 = ventricle_coords['x1'], ventricle_coords['x2']
         v_width = ventricle_coords['width']
-        ax.plot([v_x1, v_x2], [y_ventricle, y_ventricle], 'r-', linewidth=3, label=f'腦室寬度: {v_width}px')
+        ax.plot([v_x1, v_x2], [y_ventricle, y_ventricle], 'r-', linewidth=3, label=f'Ventricle Width: {v_width}px')
         ax.plot([v_x1, v_x1], [y_ventricle-5, y_ventricle+5], 'r-', linewidth=2)
         ax.plot([v_x2, v_x2], [y_ventricle-5, y_ventricle+5], 'r-', linewidth=2)
 
         # 畫出顱骨測量線
         s_x1, s_x2 = skull_coords['x1'], skull_coords['x2']
         s_width = skull_coords['width']
-        ax.plot([s_x1, s_x2], [y_skull, y_skull], 'g-', linewidth=3, label=f'顱骨寬度: {s_width}px')
+        ax.plot([s_x1, s_x2], [y_skull, y_skull], 'g-', linewidth=3, label=f'Skull Width: {s_width}px')
         ax.plot([s_x1, s_x1], [y_skull-5, y_skull+5], 'g-', linewidth=2)
         ax.plot([s_x2, s_x2], [y_skull-5, y_skull+5], 'g-', linewidth=2)
 
         # 標註座標資訊
         ax.text(10, original_slice.shape[1] - 20,
-               f'切片: Z={z_slice}\n腦室位置: Y={y_ventricle}\n顱骨位置: Y={y_skull}',
+               f'Slice: Z={z_slice}\nVentricle Y: {y_ventricle}\nSkull Y: {y_skull}',
                color='white', fontsize=10, bbox=dict(boxstyle="round,pad=0.3", facecolor="black", alpha=0.7))
 
         # 設定圖形屬性
-        ax.set_title(f'{case_name} - Evans Index 測量切片\nZ={z_slice}, Evans Index={ventricle_coords["width"]/skull_coords["width"]:.4f}',
+        ax.set_title(f'{case_name} - Evans Index Measurement Slice\nZ={z_slice}, Evans Index={ventricle_coords["width"]/skull_coords["width"]:.4f}',
                     fontsize=14, pad=20)
-        ax.set_xlabel('X 軸 (像素)')
-        ax.set_ylabel('Y 軸 (像素)')
+        ax.set_xlabel('X axis (pixels)')
+        ax.set_ylabel('Y axis (pixels)')
         ax.legend(loc='upper right')
         ax.grid(True, alpha=0.3)
 
@@ -84,11 +84,11 @@ def generate_evans_slice_screenshot(case_name, original_path, ventricle_path, br
         plt.savefig(output_path, dpi=150, bbox_inches='tight')
         plt.close()
 
-        print(f"✅ 生成截圖: {output_path}")
+        print(f"✅ Generated screenshot: {output_path}")
         return True
 
     except Exception as e:
-        print(f"❌ {case_name}: 生成截圖失敗 - {str(e)}")
+        print(f"❌ {case_name}: Screenshot generation failed - {str(e)}")
         return False
 
 def main():
@@ -110,7 +110,7 @@ def main():
             continue
 
         total_count += 1
-        print(f"\n處理案例: {case_name}")
+        print(f"\nProcessing case: {case_name}")
 
         try:
             # 取得檔案路徑
@@ -129,10 +129,10 @@ def main():
                 success_count += 1
 
         except Exception as e:
-            print(f"❌ {case_name}: 處理失敗 - {str(e)}")
+            print(f"❌ {case_name}: Processing failed - {str(e)}")
 
-    print(f"\n完成！成功生成 {success_count}/{total_count} 個截圖")
-    print(f"截圖保存在: {output_dir}")
+    print(f"\nCompleted! Successfully generated {success_count}/{total_count} screenshots")
+    print(f"Screenshots saved in: {output_dir}")
 
 if __name__ == "__main__":
     main()
