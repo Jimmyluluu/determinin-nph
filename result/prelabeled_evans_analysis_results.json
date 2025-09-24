@@ -1728,7 +1728,1611 @@
       },
       "screenshot_path": "evans_slices/data_8_evans_slice.png"
     },
-    "_failed_cases": []
+    "_failed_cases": [],
+    "_slice_analysis_summaries": [
+      {
+        "case_name": "000016209E",
+        "total_slices": 7,
+        "effective_slices": 5,
+        "outlier_slices": 2,
+        "slice_range": {
+          "min_z": 13,
+          "max_z": 19
+        },
+        "evans_index_stats": {
+          "min": 0.252,
+          "max": 0.2727,
+          "mean": 0.2631,
+          "std": 0.006652818951391957,
+          "count": 5
+        },
+        "evans_index_stats_original": {
+          "min": 0.0512,
+          "max": 0.2984,
+          "mean": 0.23787142857142854,
+          "std": 0.07737998475585485,
+          "count": 7
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 13,
+              "evans_index": 0.0512,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 19,
+              "evans_index": 0.2984,
+              "reason": "above_threshold"
+            }
+          ],
+          "outlier_count": 2,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 7,
+        "data_file": "result/detailed_slices/000016209E/slices_data.json"
+      },
+      {
+        "case_name": "000024116H",
+        "total_slices": 9,
+        "effective_slices": 7,
+        "outlier_slices": 2,
+        "slice_range": {
+          "min_z": 14,
+          "max_z": 22
+        },
+        "evans_index_stats": {
+          "min": 0.3074,
+          "max": 0.3429,
+          "mean": 0.32737142857142854,
+          "std": 0.010250116972951263,
+          "count": 7
+        },
+        "evans_index_stats_original": {
+          "min": 0.0272,
+          "max": 0.3429,
+          "mean": 0.2667888888888889,
+          "std": 0.11443879921351892,
+          "count": 9
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 14,
+              "evans_index": 0.0272,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 22,
+              "evans_index": 0.0823,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 2,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 9,
+        "data_file": "result/detailed_slices/000024116H/slices_data.json"
+      },
+      {
+        "case_name": "000051833C",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0185,
+          "max": 0.289,
+          "mean": 0.15268749999999998,
+          "std": 0.09970922020430206,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0185,
+          "max": 0.289,
+          "mean": 0.15268749999999998,
+          "std": 0.09970922020430206,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/000051833C/slices_data.json"
+      },
+      {
+        "case_name": "000072318C",
+        "total_slices": 13,
+        "effective_slices": 13,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 13,
+          "max_z": 26
+        },
+        "evans_index_stats": {
+          "min": 0.0369,
+          "max": 0.3698,
+          "mean": 0.2597538461538462,
+          "std": 0.13597480318276514,
+          "count": 13
+        },
+        "evans_index_stats_original": {
+          "min": 0.0369,
+          "max": 0.3698,
+          "mean": 0.2597538461538462,
+          "std": 0.13597480318276514,
+          "count": 13
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 13,
+        "data_file": "result/detailed_slices/000072318C/slices_data.json"
+      },
+      {
+        "case_name": "000087554H",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 15,
+          "max_z": 20
+        },
+        "evans_index_stats": {
+          "min": 0.032,
+          "max": 0.28,
+          "mean": 0.18275,
+          "std": 0.10094790323065987,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.032,
+          "max": 0.28,
+          "mean": 0.18275,
+          "std": 0.10094790323065987,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/000087554H/slices_data.json"
+      },
+      {
+        "case_name": "000096384I",
+        "total_slices": 11,
+        "effective_slices": 11,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 14,
+          "max_z": 24
+        },
+        "evans_index_stats": {
+          "min": 0.0232,
+          "max": 0.3979,
+          "mean": 0.2766909090909091,
+          "std": 0.13839951034165515,
+          "count": 11
+        },
+        "evans_index_stats_original": {
+          "min": 0.0232,
+          "max": 0.3979,
+          "mean": 0.2766909090909091,
+          "std": 0.13839951034165515,
+          "count": 11
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 11,
+        "data_file": "result/detailed_slices/000096384I/slices_data.json"
+      },
+      {
+        "case_name": "000137208D",
+        "total_slices": 10,
+        "effective_slices": 8,
+        "outlier_slices": 2,
+        "slice_range": {
+          "min_z": 19,
+          "max_z": 28
+        },
+        "evans_index_stats": {
+          "min": 0.2758,
+          "max": 0.4006,
+          "mean": 0.33530000000000004,
+          "std": 0.037809390368002495,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0884,
+          "max": 0.4006,
+          "mean": 0.28769000000000006,
+          "std": 0.10112444264370508,
+          "count": 10
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 27,
+              "evans_index": 0.1061,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 28,
+              "evans_index": 0.0884,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 2,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 10,
+        "data_file": "result/detailed_slices/000137208D/slices_data.json"
+      },
+      {
+        "case_name": "000152785B",
+        "total_slices": 9,
+        "effective_slices": 9,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 45,
+          "max_z": 53
+        },
+        "evans_index_stats": {
+          "min": 0.0473,
+          "max": 0.3784,
+          "mean": 0.23501111111111117,
+          "std": 0.14145715051597343,
+          "count": 9
+        },
+        "evans_index_stats_original": {
+          "min": 0.0473,
+          "max": 0.3784,
+          "mean": 0.23501111111111117,
+          "std": 0.14145715051597343,
+          "count": 9
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 9,
+        "data_file": "result/detailed_slices/000152785B/slices_data.json"
+      },
+      {
+        "case_name": "000189105A",
+        "total_slices": 7,
+        "effective_slices": 7,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 19,
+          "max_z": 25
+        },
+        "evans_index_stats": {
+          "min": 0.0467,
+          "max": 0.2377,
+          "mean": 0.14874285714285715,
+          "std": 0.08709106657718127,
+          "count": 7
+        },
+        "evans_index_stats_original": {
+          "min": 0.0467,
+          "max": 0.2377,
+          "mean": 0.14874285714285715,
+          "std": 0.08709106657718127,
+          "count": 7
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 7,
+        "data_file": "result/detailed_slices/000189105A/slices_data.json"
+      },
+      {
+        "case_name": "000206288G",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 21,
+          "max_z": 28
+        },
+        "evans_index_stats": {
+          "min": 0.0414,
+          "max": 0.341,
+          "mean": 0.24796250000000003,
+          "std": 0.11386583044860299,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0414,
+          "max": 0.341,
+          "mean": 0.24796250000000003,
+          "std": 0.11386583044860299,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/000206288G/slices_data.json"
+      },
+      {
+        "case_name": "000225351C",
+        "total_slices": 7,
+        "effective_slices": 7,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 19,
+          "max_z": 25
+        },
+        "evans_index_stats": {
+          "min": 0.0553,
+          "max": 0.2941,
+          "mean": 0.1847,
+          "std": 0.08555180552490654,
+          "count": 7
+        },
+        "evans_index_stats_original": {
+          "min": 0.0553,
+          "max": 0.2941,
+          "mean": 0.1847,
+          "std": 0.08555180552490654,
+          "count": 7
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 7,
+        "data_file": "result/detailed_slices/000225351C/slices_data.json"
+      },
+      {
+        "case_name": "000227587I",
+        "total_slices": 9,
+        "effective_slices": 6,
+        "outlier_slices": 3,
+        "slice_range": {
+          "min_z": 17,
+          "max_z": 25
+        },
+        "evans_index_stats": {
+          "min": 0.2784,
+          "max": 0.2969,
+          "mean": 0.28906666666666664,
+          "std": 0.007159531331650764,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0239,
+          "max": 0.3241,
+          "mean": 0.2348333333333333,
+          "std": 0.11151669531210712,
+          "count": 9
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 17,
+              "evans_index": 0.0311,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 24,
+              "evans_index": 0.3241,
+              "reason": "above_threshold"
+            },
+            {
+              "slice_z": 25,
+              "evans_index": 0.0239,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 3,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 9,
+        "data_file": "result/detailed_slices/000227587I/slices_data.json"
+      },
+      {
+        "case_name": "000235496D",
+        "total_slices": 10,
+        "effective_slices": 10,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 12,
+          "max_z": 21
+        },
+        "evans_index_stats": {
+          "min": 0.04,
+          "max": 0.3948,
+          "mean": 0.25978,
+          "std": 0.1481450694420844,
+          "count": 10
+        },
+        "evans_index_stats_original": {
+          "min": 0.04,
+          "max": 0.3948,
+          "mean": 0.25978,
+          "std": 0.1481450694420844,
+          "count": 10
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 10,
+        "data_file": "result/detailed_slices/000235496D/slices_data.json"
+      },
+      {
+        "case_name": "000432142A",
+        "total_slices": 5,
+        "effective_slices": 4,
+        "outlier_slices": 1,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 20
+        },
+        "evans_index_stats": {
+          "min": 0.1045,
+          "max": 0.1606,
+          "mean": 0.128925,
+          "std": 0.021794193607472607,
+          "count": 4
+        },
+        "evans_index_stats_original": {
+          "min": 0.0229,
+          "max": 0.1606,
+          "mean": 0.10772000000000001,
+          "std": 0.046675449649682,
+          "count": 5
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 20,
+              "evans_index": 0.0229,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 1,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 5,
+        "data_file": "result/detailed_slices/000432142A/slices_data.json"
+      },
+      {
+        "case_name": "000536372E",
+        "total_slices": 13,
+        "effective_slices": 13,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 9,
+          "max_z": 23
+        },
+        "evans_index_stats": {
+          "min": 0.018,
+          "max": 0.3272,
+          "mean": 0.1938,
+          "std": 0.13152040496849499,
+          "count": 13
+        },
+        "evans_index_stats_original": {
+          "min": 0.018,
+          "max": 0.3272,
+          "mean": 0.1938,
+          "std": 0.13152040496849499,
+          "count": 13
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 13,
+        "data_file": "result/detailed_slices/000536372E/slices_data.json"
+      },
+      {
+        "case_name": "000882612I",
+        "total_slices": 7,
+        "effective_slices": 7,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 19,
+          "max_z": 26
+        },
+        "evans_index_stats": {
+          "min": 0.0179,
+          "max": 0.2036,
+          "mean": 0.12801428571428572,
+          "std": 0.06583304486288301,
+          "count": 7
+        },
+        "evans_index_stats_original": {
+          "min": 0.0179,
+          "max": 0.2036,
+          "mean": 0.12801428571428572,
+          "std": 0.06583304486288301,
+          "count": 7
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 7,
+        "data_file": "result/detailed_slices/000882612I/slices_data.json"
+      },
+      {
+        "case_name": "000926486C",
+        "total_slices": 9,
+        "effective_slices": 9,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 17,
+          "max_z": 26
+        },
+        "evans_index_stats": {
+          "min": 0.0207,
+          "max": 0.191,
+          "mean": 0.1459111111111111,
+          "std": 0.05338625383715767,
+          "count": 9
+        },
+        "evans_index_stats_original": {
+          "min": 0.0207,
+          "max": 0.191,
+          "mean": 0.1459111111111111,
+          "std": 0.05338625383715767,
+          "count": 9
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 9,
+        "data_file": "result/detailed_slices/000926486C/slices_data.json"
+      },
+      {
+        "case_name": "000939247G",
+        "total_slices": 11,
+        "effective_slices": 8,
+        "outlier_slices": 3,
+        "slice_range": {
+          "min_z": 20,
+          "max_z": 30
+        },
+        "evans_index_stats": {
+          "min": 0.3214,
+          "max": 0.3414,
+          "mean": 0.331525,
+          "std": 0.0055368650877549745,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0516,
+          "max": 0.3603,
+          "mean": 0.3034454545454545,
+          "std": 0.08207001848351382,
+          "count": 11
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 20,
+              "evans_index": 0.0516,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 21,
+              "evans_index": 0.2738,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 29,
+              "evans_index": 0.3603,
+              "reason": "above_threshold"
+            }
+          ],
+          "outlier_count": 3,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 11,
+        "data_file": "result/detailed_slices/000939247G/slices_data.json"
+      },
+      {
+        "case_name": "001040367F",
+        "total_slices": 12,
+        "effective_slices": 9,
+        "outlier_slices": 3,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.3333,
+          "max": 0.3929,
+          "mean": 0.37595555555555554,
+          "std": 0.018000624131840615,
+          "count": 9
+        },
+        "evans_index_stats_original": {
+          "min": 0.0235,
+          "max": 0.3929,
+          "mean": 0.2969583333333333,
+          "std": 0.13836231097095128,
+          "count": 12
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 16,
+              "evans_index": 0.0235,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 26,
+              "evans_index": 0.0871,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 27,
+              "evans_index": 0.0693,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 3,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 12,
+        "data_file": "result/detailed_slices/001040367F/slices_data.json"
+      },
+      {
+        "case_name": "001043975F",
+        "total_slices": 12,
+        "effective_slices": 12,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0258,
+          "max": 0.3308,
+          "mean": 0.21565,
+          "std": 0.10750887172694168,
+          "count": 12
+        },
+        "evans_index_stats_original": {
+          "min": 0.0258,
+          "max": 0.3308,
+          "mean": 0.21565,
+          "std": 0.10750887172694168,
+          "count": 12
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 12,
+        "data_file": "result/detailed_slices/001043975F/slices_data.json"
+      },
+      {
+        "case_name": "001046347F",
+        "total_slices": 8,
+        "effective_slices": 6,
+        "outlier_slices": 2,
+        "slice_range": {
+          "min_z": 13,
+          "max_z": 20
+        },
+        "evans_index_stats": {
+          "min": 0.2209,
+          "max": 0.2674,
+          "mean": 0.2479,
+          "std": 0.016520088781036665,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0233,
+          "max": 0.2674,
+          "mean": 0.197075,
+          "std": 0.08982009449449495,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 13,
+              "evans_index": 0.0233,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 20,
+              "evans_index": 0.0659,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 2,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/001046347F/slices_data.json"
+      },
+      {
+        "case_name": "001149210H",
+        "total_slices": 11,
+        "effective_slices": 11,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 13,
+          "max_z": 23
+        },
+        "evans_index_stats": {
+          "min": 0.0158,
+          "max": 0.3524,
+          "mean": 0.22406363636363633,
+          "std": 0.14043507896874868,
+          "count": 11
+        },
+        "evans_index_stats_original": {
+          "min": 0.0158,
+          "max": 0.3524,
+          "mean": 0.22406363636363633,
+          "std": 0.14043507896874868,
+          "count": 11
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 11,
+        "data_file": "result/detailed_slices/001149210H/slices_data.json"
+      },
+      {
+        "case_name": "001329526G",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 20,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0246,
+          "max": 0.2655,
+          "mean": 0.15995,
+          "std": 0.10062733227110814,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0246,
+          "max": 0.2655,
+          "mean": 0.15995,
+          "std": 0.10062733227110814,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/001329526G/slices_data.json"
+      },
+      {
+        "case_name": "001408865E",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 20,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0339,
+          "max": 0.2924,
+          "mean": 0.17819999999999997,
+          "std": 0.11178040973265396,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0339,
+          "max": 0.2924,
+          "mean": 0.17819999999999997,
+          "std": 0.11178040973265396,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/001408865E/slices_data.json"
+      },
+      {
+        "case_name": "001427829G",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 18,
+          "max_z": 23
+        },
+        "evans_index_stats": {
+          "min": 0.0227,
+          "max": 0.1719,
+          "mean": 0.09924999999999999,
+          "std": 0.05885274703302585,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0227,
+          "max": 0.1719,
+          "mean": 0.09924999999999999,
+          "std": 0.05885274703302585,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/001427829G/slices_data.json"
+      },
+      {
+        "case_name": "001544029G",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 26,
+          "max_z": 33
+        },
+        "evans_index_stats": {
+          "min": 0.0248,
+          "max": 0.3606,
+          "mean": 0.247975,
+          "std": 0.12343699556858956,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0248,
+          "max": 0.3606,
+          "mean": 0.247975,
+          "std": 0.12343699556858956,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/001544029G/slices_data.json"
+      },
+      {
+        "case_name": "001561211A",
+        "total_slices": 5,
+        "effective_slices": 5,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 18,
+          "max_z": 22
+        },
+        "evans_index_stats": {
+          "min": 0.0203,
+          "max": 0.2408,
+          "mean": 0.16752,
+          "std": 0.08527502330694492,
+          "count": 5
+        },
+        "evans_index_stats_original": {
+          "min": 0.0203,
+          "max": 0.2408,
+          "mean": 0.16752,
+          "std": 0.08527502330694492,
+          "count": 5
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 5,
+        "data_file": "result/detailed_slices/001561211A/slices_data.json"
+      },
+      {
+        "case_name": "001612043H",
+        "total_slices": 13,
+        "effective_slices": 10,
+        "outlier_slices": 3,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 28
+        },
+        "evans_index_stats": {
+          "min": 0.3071,
+          "max": 0.4008,
+          "mean": 0.35849999999999993,
+          "std": 0.026747598023000124,
+          "count": 10
+        },
+        "evans_index_stats_original": {
+          "min": 0.0301,
+          "max": 0.4008,
+          "mean": 0.28669999999999995,
+          "std": 0.1335102704202651,
+          "count": 13
+        },
+        "outlier_detection": {
+          "outlier_slices": [
+            {
+              "slice_z": 16,
+              "evans_index": 0.0301,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 27,
+              "evans_index": 0.0751,
+              "reason": "below_threshold"
+            },
+            {
+              "slice_z": 28,
+              "evans_index": 0.0369,
+              "reason": "below_threshold"
+            }
+          ],
+          "outlier_count": 3,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 13,
+        "data_file": "result/detailed_slices/001612043H/slices_data.json"
+      },
+      {
+        "case_name": "001734036C",
+        "total_slices": 9,
+        "effective_slices": 9,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 20,
+          "max_z": 28
+        },
+        "evans_index_stats": {
+          "min": 0.0201,
+          "max": 0.2118,
+          "mean": 0.11301111111111112,
+          "std": 0.07862385055785051,
+          "count": 9
+        },
+        "evans_index_stats_original": {
+          "min": 0.0201,
+          "max": 0.2118,
+          "mean": 0.11301111111111112,
+          "std": 0.07862385055785051,
+          "count": 9
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 9,
+        "data_file": "result/detailed_slices/001734036C/slices_data.json"
+      },
+      {
+        "case_name": "001765014F",
+        "total_slices": 4,
+        "effective_slices": 4,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 22,
+          "max_z": 26
+        },
+        "evans_index_stats": {
+          "min": 0.0246,
+          "max": 0.1187,
+          "mean": 0.068775,
+          "std": 0.043991384099616594,
+          "count": 4
+        },
+        "evans_index_stats_original": {
+          "min": 0.0246,
+          "max": 0.1187,
+          "mean": 0.068775,
+          "std": 0.043991384099616594,
+          "count": 4
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "disabled_insufficient_data"
+        },
+        "screenshots_generated": 4,
+        "data_file": "result/detailed_slices/001765014F/slices_data.json"
+      },
+      {
+        "case_name": "001998293F",
+        "total_slices": 10,
+        "effective_slices": 10,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 17,
+          "max_z": 26
+        },
+        "evans_index_stats": {
+          "min": 0.0335,
+          "max": 0.3455,
+          "mean": 0.22237,
+          "std": 0.13777251576421184,
+          "count": 10
+        },
+        "evans_index_stats_original": {
+          "min": 0.0335,
+          "max": 0.3455,
+          "mean": 0.22237,
+          "std": 0.13777251576421184,
+          "count": 10
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 10,
+        "data_file": "result/detailed_slices/001998293F/slices_data.json"
+      },
+      {
+        "case_name": "002001468A",
+        "total_slices": 4,
+        "effective_slices": 4,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 19
+        },
+        "evans_index_stats": {
+          "min": 0.0427,
+          "max": 0.1159,
+          "mean": 0.08985000000000001,
+          "std": 0.028953885749584633,
+          "count": 4
+        },
+        "evans_index_stats_original": {
+          "min": 0.0427,
+          "max": 0.1159,
+          "mean": 0.08985000000000001,
+          "std": 0.028953885749584633,
+          "count": 4
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "disabled_insufficient_data"
+        },
+        "screenshots_generated": 4,
+        "data_file": "result/detailed_slices/002001468A/slices_data.json"
+      },
+      {
+        "case_name": "002003691D",
+        "total_slices": 7,
+        "effective_slices": 7,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 21,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0463,
+          "max": 0.2471,
+          "mean": 0.1477,
+          "std": 0.08063187955145285,
+          "count": 7
+        },
+        "evans_index_stats_original": {
+          "min": 0.0463,
+          "max": 0.2471,
+          "mean": 0.1477,
+          "std": 0.08063187955145285,
+          "count": 7
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 7,
+        "data_file": "result/detailed_slices/002003691D/slices_data.json"
+      },
+      {
+        "case_name": "002055710C",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 15,
+          "max_z": 22
+        },
+        "evans_index_stats": {
+          "min": 0.0223,
+          "max": 0.1868,
+          "mean": 0.11819999999999999,
+          "std": 0.06691761103526235,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0223,
+          "max": 0.1868,
+          "mean": 0.11819999999999999,
+          "std": 0.06691761103526235,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/002055710C/slices_data.json"
+      },
+      {
+        "case_name": "data_1",
+        "total_slices": 25,
+        "effective_slices": 25,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 121,
+          "max_z": 145
+        },
+        "evans_index_stats": {
+          "min": 0.0291,
+          "max": 0.3657,
+          "mean": 0.20989600000000003,
+          "std": 0.12119409054900324,
+          "count": 25
+        },
+        "evans_index_stats_original": {
+          "min": 0.0291,
+          "max": 0.3657,
+          "mean": 0.20989600000000003,
+          "std": 0.12119409054900324,
+          "count": 25
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 25,
+        "data_file": "result/detailed_slices/data_1/slices_data.json"
+      },
+      {
+        "case_name": "data_10",
+        "total_slices": 10,
+        "effective_slices": 10,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 20,
+          "max_z": 29
+        },
+        "evans_index_stats": {
+          "min": 0.0329,
+          "max": 0.3361,
+          "mean": 0.18935,
+          "std": 0.13725276864238475,
+          "count": 10
+        },
+        "evans_index_stats_original": {
+          "min": 0.0329,
+          "max": 0.3361,
+          "mean": 0.18935,
+          "std": 0.13725276864238475,
+          "count": 10
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 10,
+        "data_file": "result/detailed_slices/data_10/slices_data.json"
+      },
+      {
+        "case_name": "data_11",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 20,
+          "max_z": 25
+        },
+        "evans_index_stats": {
+          "min": 0.026,
+          "max": 0.1222,
+          "mean": 0.06725,
+          "std": 0.03672836097622654,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.026,
+          "max": 0.1222,
+          "mean": 0.06725,
+          "std": 0.03672836097622654,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/data_11/slices_data.json"
+      },
+      {
+        "case_name": "data_12",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 27,
+          "max_z": 32
+        },
+        "evans_index_stats": {
+          "min": 0.0511,
+          "max": 0.1906,
+          "mean": 0.11649999999999999,
+          "std": 0.05145872132107442,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0511,
+          "max": 0.1906,
+          "mean": 0.11649999999999999,
+          "std": 0.05145872132107442,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/data_12/slices_data.json"
+      },
+      {
+        "case_name": "data_13",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 18,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0307,
+          "max": 0.2389,
+          "mean": 0.124875,
+          "std": 0.07161945877343671,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0307,
+          "max": 0.2389,
+          "mean": 0.124875,
+          "std": 0.07161945877343671,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/data_13/slices_data.json"
+      },
+      {
+        "case_name": "data_14",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 22,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0498,
+          "max": 0.2481,
+          "mean": 0.1585,
+          "std": 0.07448635221748119,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0498,
+          "max": 0.2481,
+          "mean": 0.1585,
+          "std": 0.07448635221748119,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/data_14/slices_data.json"
+      },
+      {
+        "case_name": "data_15",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 19,
+          "max_z": 26
+        },
+        "evans_index_stats": {
+          "min": 0.0288,
+          "max": 0.258,
+          "mean": 0.17198750000000002,
+          "std": 0.08115903273049772,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0288,
+          "max": 0.258,
+          "mean": 0.17198750000000002,
+          "std": 0.08115903273049772,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/data_15/slices_data.json"
+      },
+      {
+        "case_name": "data_2",
+        "total_slices": 9,
+        "effective_slices": 9,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 16,
+          "max_z": 24
+        },
+        "evans_index_stats": {
+          "min": 0.0361,
+          "max": 0.207,
+          "mean": 0.11658888888888888,
+          "std": 0.06514857284092934,
+          "count": 9
+        },
+        "evans_index_stats_original": {
+          "min": 0.0361,
+          "max": 0.207,
+          "mean": 0.11658888888888888,
+          "std": 0.06514857284092934,
+          "count": 9
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 9,
+        "data_file": "result/detailed_slices/data_2/slices_data.json"
+      },
+      {
+        "case_name": "data_3",
+        "total_slices": 24,
+        "effective_slices": 24,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 115,
+          "max_z": 142
+        },
+        "evans_index_stats": {
+          "min": 0.0345,
+          "max": 0.3352,
+          "mean": 0.22174166666666664,
+          "std": 0.11476239917276429,
+          "count": 24
+        },
+        "evans_index_stats_original": {
+          "min": 0.0345,
+          "max": 0.3352,
+          "mean": 0.22174166666666664,
+          "std": 0.11476239917276429,
+          "count": 24
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 24,
+        "data_file": "result/detailed_slices/data_3/slices_data.json"
+      },
+      {
+        "case_name": "data_4",
+        "total_slices": 15,
+        "effective_slices": 15,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 48,
+          "max_z": 62
+        },
+        "evans_index_stats": {
+          "min": 0.0392,
+          "max": 0.3627,
+          "mean": 0.21447333333333335,
+          "std": 0.12826881910875906,
+          "count": 15
+        },
+        "evans_index_stats_original": {
+          "min": 0.0392,
+          "max": 0.3627,
+          "mean": 0.21447333333333335,
+          "std": 0.12826881910875906,
+          "count": 15
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 15,
+        "data_file": "result/detailed_slices/data_4/slices_data.json"
+      },
+      {
+        "case_name": "data_5",
+        "total_slices": 12,
+        "effective_slices": 12,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 18,
+          "max_z": 29
+        },
+        "evans_index_stats": {
+          "min": 0.0418,
+          "max": 0.4104,
+          "mean": 0.27873333333333333,
+          "std": 0.1626914120522517,
+          "count": 12
+        },
+        "evans_index_stats_original": {
+          "min": 0.0418,
+          "max": 0.4104,
+          "mean": 0.27873333333333333,
+          "std": 0.1626914120522517,
+          "count": 12
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 12,
+        "data_file": "result/detailed_slices/data_5/slices_data.json"
+      },
+      {
+        "case_name": "data_6",
+        "total_slices": 8,
+        "effective_slices": 8,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 21,
+          "max_z": 28
+        },
+        "evans_index_stats": {
+          "min": 0.0462,
+          "max": 0.2689,
+          "mean": 0.1594875,
+          "std": 0.07429719775166489,
+          "count": 8
+        },
+        "evans_index_stats_original": {
+          "min": 0.0462,
+          "max": 0.2689,
+          "mean": 0.1594875,
+          "std": 0.07429719775166489,
+          "count": 8
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 8,
+        "data_file": "result/detailed_slices/data_6/slices_data.json"
+      },
+      {
+        "case_name": "data_7",
+        "total_slices": 6,
+        "effective_slices": 6,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 22,
+          "max_z": 27
+        },
+        "evans_index_stats": {
+          "min": 0.0319,
+          "max": 0.2299,
+          "mean": 0.14191666666666666,
+          "std": 0.08077063031957979,
+          "count": 6
+        },
+        "evans_index_stats_original": {
+          "min": 0.0319,
+          "max": 0.2299,
+          "mean": 0.14191666666666666,
+          "std": 0.08077063031957979,
+          "count": 6
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 6,
+        "data_file": "result/detailed_slices/data_7/slices_data.json"
+      },
+      {
+        "case_name": "data_8",
+        "total_slices": 7,
+        "effective_slices": 7,
+        "outlier_slices": 0,
+        "slice_range": {
+          "min_z": 10,
+          "max_z": 16
+        },
+        "evans_index_stats": {
+          "min": 0.035,
+          "max": 0.3164,
+          "mean": 0.2206,
+          "std": 0.11754439890648007,
+          "count": 7
+        },
+        "evans_index_stats_original": {
+          "min": 0.035,
+          "max": 0.3164,
+          "mean": 0.2206,
+          "std": 0.11754439890648007,
+          "count": 7
+        },
+        "outlier_detection": {
+          "outlier_slices": [],
+          "outlier_count": 0,
+          "detection_method": "IQR_1.5"
+        },
+        "screenshots_generated": 7,
+        "data_file": "result/detailed_slices/data_8/slices_data.json"
+      }
+    ]
   },
   "validation": {
     "total_analyzed": 48,

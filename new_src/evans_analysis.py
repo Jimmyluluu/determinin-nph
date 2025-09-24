@@ -8,6 +8,7 @@ from typing import Dict, List, Optional
 from utils import find_available_datasets, check_prelabeled_data_paths, load_hydrocephalus_reference, calculate_evans_index, validate_results_against_reference
 from image_processing import create_brain_mask_from_original, merge_left_right_ventricles, find_frontal_horns_segment, find_skull_segment
 from visualization import generate_evans_slice_screenshot, generate_markdown_report
+from slice_by_slice_analysis import run_slice_by_slice_analysis_for_case, generate_detailed_summary_report
 
 
 def run_prelabeled_evans_analysis(base_path: str, dataset_name: str, occupancy_threshold: float = 0.7, generate_screenshots: bool = True, screenshot_output_dir: str = "evans_slices") -> Optional[Dict]:
@@ -112,7 +113,7 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str, occupancy_t
         return None
 
 
-def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] = None, occupancy_threshold: float = 0.7, generate_screenshots: bool = True, screenshot_output_dir: str = "evans_slices") -> Dict:
+def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] = None, occupancy_threshold: float = 0.7, generate_screenshots: bool = True, screenshot_output_dir: str = "evans_slices", enable_slice_analysis: bool = True) -> Dict:
     """
     批次分析多個標記資料集
 
@@ -122,6 +123,7 @@ def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] 
         occupancy_threshold (float): 佔有率閾值，預設0.7
         generate_screenshots (bool): 是否生成可視化截圖，預設True
         screenshot_output_dir (str): 截圖輸出目錄，預設"evans_slices"
+        enable_slice_analysis (bool): 是否啟用逐切片分析，預設True
     """
     if datasets is None:
         datasets = find_available_datasets(base_path)
@@ -162,6 +164,38 @@ def batch_analyze_prelabeled_data(base_path: str, datasets: Optional[List[str]] 
             print(f"   平均 Evans Index: {avg_evans:.4f}")
             print(f"   腦室擴大案例: {high_risk_count}/{len(actual_results)} ({high_risk_count/len(actual_results)*100:.1f}%)")
             print(f"   可能/早期擴大: {medium_risk_count}/{len(actual_results)} ({medium_risk_count/len(actual_results)*100:.1f}%)")
+
+    # 執行逐切片分析（如果啟用）
+    if enable_slice_analysis:
+        print(f"\n🔍 開始逐切片分析...")
+        slice_analysis_summaries = []
+
+        for dataset in datasets:
+            result = results.get(dataset)
+            if result:  # 只對成功分析的案例進行逐切片分析
+                case_paths = {
+                    'original': result['files_used']['original'],
+                    'ventricles': result['files_used']['ventricles'],
+                    'brain_mask': result['files_used']['brain_mask']
+                }
+
+                slice_summary = run_slice_by_slice_analysis_for_case(
+                    dataset,
+                    case_paths,
+                    occupancy_threshold=occupancy_threshold,
+                    output_base_dir="result/detailed_slices"
+                )
+                slice_analysis_summaries.append(slice_summary)
+
+        # 生成逐切片分析的詳細摘要報告
+        if any(s is not None for s in slice_analysis_summaries):
+            detailed_report_path = "result/detailed_slices/detailed_summary.md"
+            os.makedirs("result/detailed_slices", exist_ok=True)
+            generate_detailed_summary_report(slice_analysis_summaries, detailed_report_path)
+            print(f"📄 逐切片分析摘要報告已保存: {detailed_report_path}")
+
+        # 將逐切片分析結果加入主結果中
+        results["_slice_analysis_summaries"] = slice_analysis_summaries
 
     return results
 
