@@ -175,7 +175,7 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
         return False
 
 
-def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reasonable_width: int = 200, occupancy_threshold: float = 0.7) -> Dict:
+def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reasonable_width: int = 200, occupancy_threshold: float = 0.6) -> Dict:
     """
     找出側腦室前角的測量段 - 根據資料來源適應不同座標系統
 
@@ -183,7 +183,7 @@ def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reason
         nii_path (str): 腦室遮罩路徑
         dataset_name (str): 資料集名稱，用於判斷座標系統
         max_reasonable_width (int): 最大合理寬度，預設200
-        occupancy_threshold (float): 佔有率閾值，預設0.7
+        occupancy_threshold (float): 佔有率閾值，預設0.6
     """
     img = nib.load(nii_path)
     mask_data = img.get_fdata()
@@ -277,7 +277,7 @@ def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reason
     return best
 
 
-def find_widest_segment_fallback(binary, max_reasonable_width, occupancy_threshold=0.7):
+def find_widest_segment_fallback(binary, max_reasonable_width, occupancy_threshold=0.6):
     """回退方法：找最寬的腦室段"""
     best = {'width': 0, 'z': None, 'y': None, 'x1': None, 'x2': None, 'occupancy': 0}
     X, Y, Z = binary.shape

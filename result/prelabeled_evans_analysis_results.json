@@ -1730,6 +1730,96 @@
     },
     "_failed_cases": []
   },
-  "validation": null,
-  "known_hydrocephalus_cases": []
+  "validation": {
+    "total_analyzed": 48,
+    "known_hydrocephalus_count": 6,
+    "hydrocephalus_correctly_identified": 5,
+    "normal_correctly_identified": 25,
+    "false_negatives": [
+      {
+        "case": "000087554H",
+        "evans_index": 0.28
+      }
+    ],
+    "false_positives": [
+      {
+        "case": "000024116H",
+        "evans_index": 0.3294
+      },
+      {
+        "case": "000072318C",
+        "evans_index": 0.3657
+      },
+      {
+        "case": "000227587I",
+        "evans_index": 0.3241
+      },
+      {
+        "case": "000536372E",
+        "evans_index": 0.3226
+      },
+      {
+        "case": "000939247G",
+        "evans_index": 0.3603
+      },
+      {
+        "case": "001040367F",
+        "evans_index": 0.3929
+      },
+      {
+        "case": "001043975F",
+        "evans_index": 0.3308
+      },
+      {
+        "case": "001149210H",
+        "evans_index": 0.3524
+      },
+      {
+        "case": "001544029G",
+        "evans_index": 0.3606
+      },
+      {
+        "case": "001612043H",
+        "evans_index": 0.4008
+      },
+      {
+        "case": "001998293F",
+        "evans_index": 0.3405
+      },
+      {
+        "case": "data_1",
+        "evans_index": 0.3657
+      },
+      {
+        "case": "data_10",
+        "evans_index": 0.3361
+      },
+      {
+        "case": "data_3",
+        "evans_index": 0.3352
+      },
+      {
+        "case": "data_4",
+        "evans_index": 0.3627
+      },
+      {
+        "case": "data_5",
+        "evans_index": 0.4104
+      },
+      {
+        "case": "data_8",
+        "evans_index": 0.3164
+      }
+    ],
+    "not_analyzed": [],
+    "accuracy": 0.625
+  },
+  "known_hydrocephalus_cases": [
+    "000235496D",
+    "000206288G",
+    "000152785B",
+    "000137208D",
+    "000096384I",
+    "000087554H"
+  ]
 }

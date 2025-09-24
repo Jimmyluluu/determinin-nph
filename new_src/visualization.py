@@ -218,7 +218,7 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
             ]
 
             for case in known_cases:
-                if case in results:
+                if case in actual_results:
                     r = actual_results[case]
                     evans_index = r["evans_analysis"]["evans_index"]
                     predicted = r["evans_analysis"]["hydrocephalus_risk"]

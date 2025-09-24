@@ -97,11 +97,18 @@ def load_hydrocephalus_reference() -> List[str]:
     載入已知水腦症案例的參考清單
     """
     try:
-        reference_file = "hydrocephalus_reference.json"
-        if os.path.exists(reference_file):
-            with open(reference_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                return data.get("hydrocephalus_cases", {}).get("cases", [])
+        # 嘗試多個可能的路徑
+        possible_paths = [
+            "hydrocephalus_reference.json",
+            "result/hydrocephalus_reference.json",
+            "../result/hydrocephalus_reference.json"
+        ]
+
+        for reference_file in possible_paths:
+            if os.path.exists(reference_file):
+                with open(reference_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    return data.get("hydrocephalus_cases", {}).get("cases", [])
         return []
     except Exception:
         return []
