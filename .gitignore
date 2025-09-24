@@ -10,3 +10,4 @@ data/*
 __pycache__/
 env
 src/__pycache__
+evans_slices

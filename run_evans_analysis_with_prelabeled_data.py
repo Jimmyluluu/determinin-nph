@@ -165,9 +165,9 @@ def create_brain_mask_from_original(original_path: str, output_path: str) -> boo
     except Exception as e:
         return False
 
-def merge_left_right_ventricles(left_path: str, right_path: str, output_path: str, dataset_name: str = "") -> bool:
+def merge_left_right_ventricles(left_path: str, right_path: str, output_path: str, dataset_name: str = "", original_path: str = None) -> bool:
     """
-    合併左右腦室遮罩為單一檔案
+    合併左右腦室遮罩為單一檔案，處理尺寸不同的情況
     """
     try:
         import SimpleITK as sitk
@@ -189,47 +189,62 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
             print(f"❌ {dataset_name}: 檔案大小為 0 (左: {left_size}, 右: {right_size})")
             return False
 
-        print(f"🔍 {dataset_name}: 嘗試讀取左右腦室檔案...")
-
         # 讀取左右腦室
         left_img = sitk.ReadImage(left_path)
         right_img = sitk.ReadImage(right_path)
 
         # 檢查影像尺寸是否一致
         if left_img.GetSize() != right_img.GetSize():
-            print(f"❌ {dataset_name}: 左右腦室影像尺寸不一致 (左: {left_img.GetSize()}, 右: {right_img.GetSize()})")
-            return False
+            print(f"🔍 {dataset_name}: 左右腦室影像尺寸不一致 (左: {left_img.GetSize()}, 右: {right_img.GetSize()})")
 
-        # 轉換為 numpy 進行合併
-        left_array = sitk.GetArrayFromImage(left_img)
-        right_array = sitk.GetArrayFromImage(right_img)
+            # 如果有原始影像，使用它作為參考空間
+            if original_path and os.path.exists(original_path):
+                print(f"🔧 {dataset_name}: 使用原始影像作為參考空間進行重新採樣...")
+                original_img = sitk.ReadImage(original_path)
 
-        # 檢查陣列資料
-        left_unique = np.unique(left_array)
-        right_unique = np.unique(right_array)
-        left_nonzero = np.count_nonzero(left_array)
-        right_nonzero = np.count_nonzero(right_array)
+                # 重新採樣左右腦室到原始影像空間
+                resampler = sitk.ResampleImageFilter()
+                resampler.SetReferenceImage(original_img)
+                resampler.SetInterpolator(sitk.sitkNearestNeighbor)  # 使用最近鄰插值保持二進制遮罩
+                resampler.SetDefaultPixelValue(0)
 
-        print(f"🔍 {dataset_name}: 左腦室值 {left_unique}, 非零數 {left_nonzero}")
-        print(f"🔍 {dataset_name}: 右腦室值 {right_unique}, 非零數 {right_nonzero}")
+                left_resampled = resampler.Execute(left_img)
+                right_resampled = resampler.Execute(right_img)
 
-        if left_nonzero == 0 and right_nonzero == 0:
-            print(f"❌ {dataset_name}: 左右腦室都是空的遮罩")
-            return False
+                # 轉換為 numpy 進行合併
+                left_array = sitk.GetArrayFromImage(left_resampled)
+                right_array = sitk.GetArrayFromImage(right_resampled)
 
-        # 直接進行邏輯 OR (因為原檔案已經是二進制的 0/1)
-        merged_array = np.logical_or(left_array > 0.5, right_array > 0.5).astype(np.uint8)
+                # 合併
+                merged_array = np.logical_or(left_array > 0.5, right_array > 0.5).astype(np.uint8)
+
+                # 轉回 SimpleITK 影像
+                merged = sitk.GetImageFromArray(merged_array)
+                merged.CopyInformation(original_img)
+
+                print(f"✅ {dataset_name}: 重新採樣後合併完成")
+            else:
+                print(f"❌ {dataset_name}: 無法處理尺寸不一致且缺少原始影像參考")
+                return False
+        else:
+            # 尺寸一致的正常處理
+            left_array = sitk.GetArrayFromImage(left_img)
+            right_array = sitk.GetArrayFromImage(right_img)
+
+            # 合併
+            merged_array = np.logical_or(left_array > 0.5, right_array > 0.5).astype(np.uint8)
+
+            # 轉回 SimpleITK 影像
+            merged = sitk.GetImageFromArray(merged_array)
+            merged.CopyInformation(left_img)
+
+        # 檢查合併結果
         merged_nonzero = np.count_nonzero(merged_array)
-
-        print(f"🔍 {dataset_name}: 合併後非零數 {merged_nonzero}")
-
         if merged_nonzero == 0:
             print(f"❌ {dataset_name}: 合併後遮罩為空")
             return False
 
-        # 轉回 SimpleITK 影像
-        merged = sitk.GetImageFromArray(merged_array)
-        merged.CopyInformation(left_img)
+        print(f"🔍 {dataset_name}: 合併後非零數 {merged_nonzero}")
 
         # 保存結果
         sitk.WriteImage(merged, output_path)
@@ -240,9 +255,9 @@ def merge_left_right_ventricles(left_path: str, right_path: str, output_path: st
         print(f"❌ {dataset_name}: 合併失敗 - {str(e)}")
         return False
 
-def find_frontal_horns_segment(nii_path: str, max_reasonable_width: int = 200) -> Dict:
+def find_frontal_horns_segment(nii_path: str, dataset_name: str = "", max_reasonable_width: int = 200) -> Dict:
     """
-    找出側腦室前角的測量段 - 簡化版本，專注於 Z 軸定位
+    找出側腦室前角的測量段 - 根據資料來源適應不同座標系統
     """
     img = nib.load(nii_path)
     mask_data = img.get_fdata()
@@ -269,15 +284,26 @@ def find_frontal_horns_segment(nii_path: str, max_reasonable_width: int = 200) -
     z_min, z_max = min(z_coords), max(z_coords)
     z_range = z_max - z_min
 
-    # 前角區域：Z 軸中前部 (30%-60%)
+    # 前角區域：Z 軸前部 (z/3 到 z)
     if z_range > 0:
-        target_z_start = int(z_min + z_range * 0.3)
-        target_z_end = int(z_min + z_range * 0.6)
+        target_z_start = int(z_min + z_range / 3)  # z/3
+        target_z_end = z_max  # z
     else:
         target_z_start = target_z_end = z_min
 
-    # 在目標區域尋找最寬的腦室段 - 限制在Y軸上半部（前角位置）
+    # 根據資料來源決定 Y 軸搜索範圍
     y_mid = Y // 2  # Y軸中點
+
+    # data 開頭的檔案：前角在下半部 (0 到 n/2)
+    # 其他檔案：前角在上半部 (n/2 到 n)
+    is_data_series = dataset_name.startswith('data_')
+
+    if is_data_series:
+        y_search_range = range(0, y_mid)
+        search_description = "下半部 (data 系列)"
+    else:
+        y_search_range = range(y_mid, Y)
+        search_description = "上半部 (編號系列)"
 
     for z in range(target_z_start, min(target_z_end + 1, Z)):
         slice_ = binary[:, :, z]
@@ -285,8 +311,8 @@ def find_frontal_horns_segment(nii_path: str, max_reasonable_width: int = 200) -
         if np.count_nonzero(slice_) == 0:
             continue
 
-        # 只搜尋Y軸中點以上的區域（前角通常在上半部）
-        for y in range(0, y_mid):
+        # 根據資料類型搜索對應的 Y 範圍
+        for y in y_search_range:
             col = slice_[:, y]
             xs = np.where(col > 0)[0]
 
@@ -316,11 +342,11 @@ def find_frontal_horns_segment(nii_path: str, max_reasonable_width: int = 200) -
 
     # 調試資訊
     if best['width'] == 0:
-        print(f"❌ 在前角區域找不到有效段，Z範圍: {target_z_start}-{target_z_end}, Y範圍: 0-{y_mid}")
+        print(f"❌ 在前角區域找不到有效段，Z範圍: {target_z_start}-{target_z_end}, Y範圍: {search_description}")
         # 回退到全域搜尋最寬段
         return find_widest_segment_fallback(binary, max_reasonable_width)
     else:
-        print(f"✅ 找到前角段: 寬度={best['width']}, Z={best['z']}, Y={best['y']} (上半部)")
+        print(f"✅ 找到前角段: 寬度={best['width']}, Z={best['z']}, Y={best['y']} ({search_description})")
 
     return best
 
@@ -347,45 +373,50 @@ def find_widest_segment_fallback(binary, max_reasonable_width):
 
     return best
 
-def find_skull_segment(skull_path: str, z_fixed: int, min_reasonable_width: int = 100) -> Dict:
+def find_skull_segment(skull_path: str, z_fixed: int, y_ventricle: int, min_reasonable_width: int = 100) -> Dict:
     """
-    找出顱骨的最寬段（從現有的 notebook 程式碼複製）
+    在指定的 Z 切片上找到顱骨的最大寬度，而不是固定在腦室的 Y 座標
     """
     skull_img = nib.load(skull_path)
     skull_data = skull_img.get_fdata()
     skull_binary = (skull_data > 0).astype(np.uint8)
 
     slice_skull = skull_binary[:, :, z_fixed]
-    best_segment = None
+
+    # 在整個 Z 切片上找到顱骨的最大寬度
+    max_width = 0
+    best_y = y_ventricle
+    best_x1, best_x2 = 0, 0
+    best_occupancy = 0.0
 
     for y in range(slice_skull.shape[1]):
         col_skull = slice_skull[:, y]
         xs = np.where(col_skull > 0)[0]
 
-        if xs.size < 2:
-            continue
+        if xs.size >= 2:
+            x1, x2 = xs.min(), xs.max()
+            width = x2 - x1
+            occupancy = col_skull[x1:x2+1].sum() / (width + 1)
 
-        x1_skull, x2_skull = xs.min(), xs.max()
-        width_skull = x2_skull - x1_skull
-        occupancy_skull = col_skull[x1_skull:x2_skull+1].sum() / (width_skull + 1)
+            # 更新最大寬度
+            if width > max_width:
+                max_width = width
+                best_y = y
+                best_x1, best_x2 = x1, x2
+                best_occupancy = occupancy
 
-        if (best_segment is None) or (width_skull > best_segment['width']):
-            # 檢查顱骨寬度是否合理
-            if width_skull < min_reasonable_width:
-                continue
-            best_segment = {
-                'width': int(width_skull),
-                'x1': int(x1_skull),
-                'x2': int(x2_skull),
-                'occupancy': float(occupancy_skull),
-                'z': int(z_fixed),
-                'y': int(y)
-            }
+    # 檢查是否找到合理的顱骨寬度
+    if max_width < min_reasonable_width:
+        raise RuntimeError(f"在 z={z_fixed} 找到的最大顱骨寬度 {max_width} 小於最小合理值 {min_reasonable_width}")
 
-    if best_segment is None:
-        raise RuntimeError(f"在 z={z_fixed} 找不到顱骨段")
-
-    return best_segment
+    return {
+        'width': int(max_width),
+        'x1': int(best_x1),
+        'x2': int(best_x2),
+        'occupancy': float(best_occupancy),
+        'z': int(z_fixed),
+        'y': int(best_y)
+    }
 
 def calculate_evans_index(ventricle_width: float, skull_width: float) -> Dict:
     """
@@ -444,7 +475,8 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
             paths["ventricle_left"],
             paths["ventricle_right"],
             ventricle_mask_path,
-            dataset_name
+            dataset_name,
+            paths["original"]
         )
         if not success:
             return None
@@ -460,14 +492,14 @@ def run_prelabeled_evans_analysis(base_path: str, dataset_name: str) -> Optional
     try:
         # 找出側腦室前角位置 - Evans Index 標準測量點
         print("🔍 尋找側腦室前角測量段...")
-        ventricle_segment = find_frontal_horns_segment(ventricle_mask_path)
+        ventricle_segment = find_frontal_horns_segment(ventricle_mask_path, dataset_name)
 
         if ventricle_segment['width'] == 0:
             print(f"❌ 在 {dataset_name} 中找不到有效的腦室段")
             return None
 
-        # 使用相同的 z 切片找出顱骨段
-        skull_segment = find_skull_segment(brain_mask_path, ventricle_segment['z'])
+        # 使用相同的 z, y 座標找出對應的顱骨段
+        skull_segment = find_skull_segment(brain_mask_path, ventricle_segment['z'], ventricle_segment['y'])
 
         # 計算 Evans Index
         evans_results = calculate_evans_index(
@@ -580,13 +612,14 @@ def validate_results_against_reference(results: Dict, known_hydrocephalus: List[
     # 檢查已知水腦症案例
     for case in known_hydrocephalus:
         if case in results:
-            if results[case]["evans_analysis"]["hydrocephalus_risk"] == "高":
+            evans_index = results[case]["evans_analysis"]["evans_index"]
+            if evans_index > 0.30:  # 只有 > 0.30 才算預測為異常
                 validation["hydrocephalus_correctly_identified"] += 1
                 total_correct += 1
             else:
                 validation["false_negatives"].append({
                     "case": case,
-                    "evans_index": results[case]["evans_analysis"]["evans_index"]
+                    "evans_index": evans_index
                 })
         else:
             validation["not_analyzed"].append(case)
@@ -598,13 +631,14 @@ def validate_results_against_reference(results: Dict, known_hydrocephalus: List[
             continue
 
         if case not in known_hydrocephalus:  # 應該是正常案例
-            if result["evans_analysis"]["hydrocephalus_risk"] == "低":
+            evans_index = result["evans_analysis"]["evans_index"]
+            if evans_index <= 0.30:  # ≤ 0.30 才算預測為正常
                 validation["normal_correctly_identified"] += 1
                 total_correct += 1
             else:
                 validation["false_positives"].append({
                     "case": case,
-                    "evans_index": result["evans_analysis"]["evans_index"]
+                    "evans_index": evans_index
                 })
 
     # 計算準確率
@@ -656,42 +690,54 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
 
         f.write("## 🟢 正常範圍案例\n\n")
         if normal_cases:
-            f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 |\n")
-            f.write("|------|-------------|----------|----------|\n")
+            f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 測量位置 (x,y,z) |\n")
+            f.write("|------|-------------|----------|----------|------------------|\n")
             for case in sorted(normal_cases):
                 r = actual_results[case]
                 ei = r["evans_analysis"]["evans_index"]
                 vw = r["evans_analysis"]["ventricle_width"]
                 sw = r["evans_analysis"]["skull_width"]
-                f.write(f"| {case} | {ei:.4f} | {vw} | {sw} |\n")
+                vs = r["ventricle_segment"]
+                ss = r["skull_segment"]
+                v_pos = f"({vs['x1']}-{vs['x2']},{vs['y']},{vs['z']})"
+                s_pos = f"({ss['x1']}-{ss['x2']},{ss['y']},{ss['z']})"
+                f.write(f"| {case} | {ei:.4f} | {vw} | {sw} | V:{v_pos} S:{s_pos} |\n")
         else:
             f.write("沒有正常範圍的案例\n")
 
         f.write("\n## 🟡 可能/早期擴大案例\n\n")
         if medium_cases:
-            f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 臨床意義 |\n")
-            f.write("|------|-------------|----------|----------|----------|\n")
+            f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 測量位置 (x,y,z) | 臨床意義 |\n")
+            f.write("|------|-------------|----------|----------|------------------|----------|\n")
             for case in sorted(medium_cases):
                 r = actual_results[case]
                 ei = r["evans_analysis"]["evans_index"]
                 vw = r["evans_analysis"]["ventricle_width"]
                 sw = r["evans_analysis"]["skull_width"]
                 cs = r["evans_analysis"]["clinical_significance"]
-                f.write(f"| {case} | {ei:.4f} | {vw} | {sw} | {cs} |\n")
+                vs = r["ventricle_segment"]
+                ss = r["skull_segment"]
+                v_pos = f"({vs['x1']}-{vs['x2']},{vs['y']},{vs['z']})"
+                s_pos = f"({ss['x1']}-{ss['x2']},{ss['y']},{ss['z']})"
+                f.write(f"| {case} | {ei:.4f} | {vw} | {sw} | V:{v_pos} S:{s_pos} | {cs} |\n")
         else:
             f.write("沒有可能/早期擴大案例\n")
 
         f.write("\n## 🔴 腦室擴大案例\n\n")
         if high_cases:
-            f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 臨床意義 |\n")
-            f.write("|------|-------------|----------|----------|----------|\n")
+            f.write("| 案例 | Evans Index | 腦室寬度 | 顱骨寬度 | 測量位置 (x,y,z) | 臨床意義 |\n")
+            f.write("|------|-------------|----------|----------|------------------|----------|\n")
             for case in sorted(high_cases):
                 r = actual_results[case]
                 ei = r["evans_analysis"]["evans_index"]
                 vw = r["evans_analysis"]["ventricle_width"]
                 sw = r["evans_analysis"]["skull_width"]
                 cs = r["evans_analysis"]["clinical_significance"]
-                f.write(f"| {case} | {ei:.4f} | {vw} | {sw} | {cs} |\n")
+                vs = r["ventricle_segment"]
+                ss = r["skull_segment"]
+                v_pos = f"({vs['x1']}-{vs['x2']},{vs['y']},{vs['z']})"
+                s_pos = f"({ss['x1']}-{ss['x2']},{ss['y']},{ss['z']})"
+                f.write(f"| {case} | {ei:.4f} | {vw} | {sw} | V:{v_pos} S:{s_pos} | {cs} |\n")
         else:
             f.write("沒有腦室擴大案例\n")
 
@@ -727,7 +773,7 @@ def generate_markdown_report(results: Dict, output_file: str, validation: Dict =
                     r = actual_results[case]
                     evans_index = r["evans_analysis"]["evans_index"]
                     predicted = r["evans_analysis"]["hydrocephalus_risk"]
-                    status = "✅ 正確" if predicted == "高" else "❌ 漏報"
+                    status = "✅ 正確" if evans_index > 0.30 else "❌ 漏報"
                     f.write(f"| {case} | {evans_index:.4f} | {predicted} 風險 | 有水腦症 | {status} |\n")
                 else:
                     f.write(f"| {case} | - | 未分析 | 有水腦症 | ❌ 未分析 |\n")
