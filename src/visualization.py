@@ -96,6 +96,151 @@ def generate_evans_slice_screenshot(case_name, original_path, ventricle_path, br
         return False
 
 
+def generate_global_max_screenshot(case_name, original_path, ventricle_path, brain_mask_path,
+                                   ventricle_max, skull_max, evans_index, output_dir):
+    """
+    生成全域最大值分析的並排切片截圖
+    顯示腦室最大的切片和顱骨最大的切片
+    """
+    try:
+        # 讀取影像
+        original_img = nib.load(original_path)
+        original_data = original_img.get_fdata()
+
+        ventricle_img = nib.load(ventricle_path)
+        ventricle_data = ventricle_img.get_fdata()
+
+        brain_img = nib.load(brain_mask_path)
+        brain_data = brain_img.get_fdata()
+
+        # 判斷是否在同一切片
+        same_slice = ventricle_max['z'] == skull_max['z']
+
+        if same_slice:
+            # 如果在同一切片,只顯示一個圖
+            fig, ax = plt.subplots(1, 1, figsize=(12, 10))
+            z_slice = ventricle_max['z']
+
+            # 取得該切片的資料
+            original_slice = original_data[:, :, z_slice]
+            ventricle_slice = ventricle_data[:, :, z_slice]
+            brain_slice = brain_data[:, :, z_slice]
+
+            # 顯示原始影像
+            ax.imshow(original_slice.T, cmap='gray', origin='lower', alpha=0.8)
+
+            # 疊加腦室遮罩
+            ventricle_mask = ventricle_slice > 0
+            ax.imshow(np.ma.masked_where(~ventricle_mask.T, ventricle_slice.T),
+                     cmap='Reds', origin='lower', alpha=0.6)
+
+            # 疊加腦部邊界
+            brain_mask = brain_slice > 0
+            ax.contour(brain_mask.T, levels=[0.5], colors='blue', linewidths=1, alpha=0.7)
+
+            # 畫出腦室測量線
+            v_x1, v_x2 = ventricle_max['x1'], ventricle_max['x2']
+            v_y = ventricle_max['y']
+            v_width = ventricle_max['width']
+            ax.plot([v_x1, v_x2], [v_y, v_y], 'r-', linewidth=3, label=f'Ventricle Max: {v_width}px')
+            ax.plot([v_x1, v_x1], [v_y-5, v_y+5], 'r-', linewidth=2)
+            ax.plot([v_x2, v_x2], [v_y-5, v_y+5], 'r-', linewidth=2)
+
+            # 畫出顱骨測量線
+            s_x1, s_x2 = skull_max['x1'], skull_max['x2']
+            s_y = skull_max['y']
+            s_width = skull_max['width']
+            ax.plot([s_x1, s_x2], [s_y, s_y], 'g-', linewidth=3, label=f'Skull Max: {s_width}px')
+            ax.plot([s_x1, s_x1], [s_y-5, s_y+5], 'g-', linewidth=2)
+            ax.plot([s_x2, s_x2], [s_y-5, s_y+5], 'g-', linewidth=2)
+
+            ax.set_title(f'{case_name} - Global Max Evans Index\nZ={z_slice} (Same Slice), Evans Index={evans_index:.4f}',
+                        fontsize=14, pad=20)
+            ax.set_xlabel('X axis (pixels)')
+            ax.set_ylabel('Y axis (pixels)')
+            ax.legend(loc='upper right')
+            ax.grid(True, alpha=0.3)
+            ax.set_xlim(0, original_slice.shape[0])
+            ax.set_ylim(0, original_slice.shape[1])
+
+        else:
+            # 如果在不同切片,並排顯示兩個圖
+            fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 10))
+
+            # 左圖: 腦室最大的切片
+            z_vent = ventricle_max['z']
+            original_slice_vent = original_data[:, :, z_vent]
+            ventricle_slice_vent = ventricle_data[:, :, z_vent]
+            brain_slice_vent = brain_data[:, :, z_vent]
+
+            ax1.imshow(original_slice_vent.T, cmap='gray', origin='lower', alpha=0.8)
+            ventricle_mask = ventricle_slice_vent > 0
+            ax1.imshow(np.ma.masked_where(~ventricle_mask.T, ventricle_slice_vent.T),
+                      cmap='Reds', origin='lower', alpha=0.6)
+            brain_mask = brain_slice_vent > 0
+            ax1.contour(brain_mask.T, levels=[0.5], colors='blue', linewidths=1, alpha=0.7)
+
+            v_x1, v_x2 = ventricle_max['x1'], ventricle_max['x2']
+            v_y = ventricle_max['y']
+            v_width = ventricle_max['width']
+            ax1.plot([v_x1, v_x2], [v_y, v_y], 'r-', linewidth=3, label=f'Ventricle Max: {v_width}px')
+            ax1.plot([v_x1, v_x1], [v_y-5, v_y+5], 'r-', linewidth=2)
+            ax1.plot([v_x2, v_x2], [v_y-5, v_y+5], 'r-', linewidth=2)
+
+            ax1.set_title(f'Ventricle Maximum at Z={z_vent}', fontsize=14, pad=20)
+            ax1.set_xlabel('X axis (pixels)')
+            ax1.set_ylabel('Y axis (pixels)')
+            ax1.legend(loc='upper right')
+            ax1.grid(True, alpha=0.3)
+            ax1.set_xlim(0, original_slice_vent.shape[0])
+            ax1.set_ylim(0, original_slice_vent.shape[1])
+
+            # 右圖: 顱骨最大的切片
+            z_skull = skull_max['z']
+            original_slice_skull = original_data[:, :, z_skull]
+            ventricle_slice_skull = ventricle_data[:, :, z_skull]
+            brain_slice_skull = brain_data[:, :, z_skull]
+
+            ax2.imshow(original_slice_skull.T, cmap='gray', origin='lower', alpha=0.8)
+            ventricle_mask2 = ventricle_slice_skull > 0
+            ax2.imshow(np.ma.masked_where(~ventricle_mask2.T, ventricle_slice_skull.T),
+                      cmap='Reds', origin='lower', alpha=0.6)
+            brain_mask2 = brain_slice_skull > 0
+            ax2.contour(brain_mask2.T, levels=[0.5], colors='blue', linewidths=1, alpha=0.7)
+
+            s_x1, s_x2 = skull_max['x1'], skull_max['x2']
+            s_y = skull_max['y']
+            s_width = skull_max['width']
+            ax2.plot([s_x1, s_x2], [s_y, s_y], 'g-', linewidth=3, label=f'Skull Max: {s_width}px')
+            ax2.plot([s_x1, s_x1], [s_y-5, s_y+5], 'g-', linewidth=2)
+            ax2.plot([s_x2, s_x2], [s_y-5, s_y+5], 'g-', linewidth=2)
+
+            ax2.set_title(f'Skull Maximum at Z={z_skull}', fontsize=14, pad=20)
+            ax2.set_xlabel('X axis (pixels)')
+            ax2.set_ylabel('Y axis (pixels)')
+            ax2.legend(loc='upper right')
+            ax2.grid(True, alpha=0.3)
+            ax2.set_xlim(0, original_slice_skull.shape[0])
+            ax2.set_ylim(0, original_slice_skull.shape[1])
+
+            # 整體標題
+            fig.suptitle(f'{case_name} - Global Max Evans Index = {evans_index:.4f}\n(Ventricle at Z={z_vent}, Skull at Z={z_skull})',
+                        fontsize=16, y=0.98)
+
+        # 保存截圖
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, f'{case_name}_global_max.png')
+        plt.savefig(output_path, dpi=150, bbox_inches='tight')
+        plt.close()
+
+        print(f"✅ Generated global max screenshot: {output_path}")
+        return True
+
+    except Exception as e:
+        print(f"❌ {case_name}: Global max screenshot generation failed - {str(e)}")
+        return False
+
+
 def generate_markdown_report(results: Dict, output_file: str, validation: Dict = None):
     """
     產生簡潔明瞭的 Markdown 報告
