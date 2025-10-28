@@ -226,7 +226,7 @@ def run_global_max_analysis_for_case(case_name: str, case_paths: Dict,
         return None
 
 
-def generate_global_max_summary_report(all_case_summaries: List[Dict], output_path: str):
+def generate_global_max_summary_report(all_case_summaries: List[Dict], output_path: str, validation: Dict = None):
     """
     生成全域最大值分析摘要報告 (參考原始報告格式)
     """
@@ -298,54 +298,15 @@ def generate_global_max_summary_report(all_case_summaries: List[Dict], output_pa
         else:
             f.write("沒有腦室擴大案例\n")
 
-        # 已知水腦症案例驗證
-        known_hydrocephalus_cases = [
-            "000235496D", "000206288G", "000152785B",
-            "000137208D", "000096384I", "000087554H"
-        ]
+        # 驗證結果
+        if validation:
+            f.write("\n## 🔍 驗證結果\n\n")
+            f.write(f"- **總體準確率**: {validation['accuracy']*100:.1f}%\n")
+            f.write(f"- **水腦症正確識別**: {validation['hydrocephalus_correctly_identified']}/{validation['known_hydrocephalus_count']}\n")
+            f.write(f"- **正常案例正確識別**: {validation['normal_correctly_identified']}\n")
+            f.write(f"- **漏報案例**: {len(validation['false_negatives'])} 個\n")
+            f.write(f"- **誤報案例**: {len(validation['false_positives'])} 個\n\n")
 
-        # 建立案例字典方便查詢
-        case_dict = {case['case_name']: case for case in successful_cases}
-
-        f.write("\n## 🔍 已知水腦症案例驗證\n\n")
-
-        # 計算驗證統計
-        analyzed_known_cases = [c for c in known_hydrocephalus_cases if c in case_dict]
-        correct_identified = sum(1 for c in analyzed_known_cases if case_dict[c]['evans_index'] > 0.30)
-
-        if analyzed_known_cases:
-            accuracy = correct_identified / len(analyzed_known_cases)
-            f.write(f"- **已知水腦症案例數**: {len(known_hydrocephalus_cases)} 個\n")
-            f.write(f"- **成功分析案例**: {len(analyzed_known_cases)} 個\n")
-            f.write(f"- **正確識別 (> 0.30)**: {correct_identified}/{len(analyzed_known_cases)} ({accuracy*100:.1f}%)\n")
-            f.write(f"- **漏報案例**: {len(analyzed_known_cases) - correct_identified} 個\n\n")
-
-            # 詳細表格
-            f.write("### 📋 已知水腦症案例預測狀況\n\n")
-            f.write("| 案例 | Evans Index | 預測結果 | 實際狀況 | 狀態 |\n")
-            f.write("|------|-------------|----------|----------|------|\n")
-
-            for case_name in known_hydrocephalus_cases:
-                if case_name in case_dict:
-                    case = case_dict[case_name]
-                    evans_idx = case['evans_index']
-
-                    # 判斷預測結果
-                    if evans_idx <= 0.25:
-                        predicted = "低"
-                    elif evans_idx <= 0.30:
-                        predicted = "中"
-                    else:
-                        predicted = "高"
-
-                    # 判斷是否正確
-                    status = "✅ 正確" if evans_idx > 0.30 else "❌ 漏報"
-
-                    f.write(f"| {case_name} | {evans_idx:.4f} | {predicted} 風險 | 有水腦症 | {status} |\n")
-                else:
-                    f.write(f"| {case_name} | - | 未分析 | 有水腦症 | ❌ 未分析 |\n")
-        else:
-            f.write("無已知水腦症案例參與本次分析\n")
 
         # 說明
         f.write("\n## 📖 說明\n\n")

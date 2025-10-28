@@ -4,159 +4,99 @@ Automatic tool for detecting **Evans Index** and analyzing brain structures from
 
 ---
 
-## 📝 Overview
-
-MindScope is a **Python 3.10-based pipeline** for:
-- 🧠 automatic brain structure segmentation
-- 📐 image alignment
-- 📊 calculation of **Evans Index (EI)** and **Ventricle-to-Brain Ratio (VBR)**
-
-The program takes a folder containing **DICOM files** of head CT, processes them using:
-- 🧩 [T](https://github.com/wasserth/TotalSegmentator)
-- 🧭 [FSL's flirt](https://fsl.fmrib.ox.ac.uk/fsldownloads) for alignment
-- 🗂️ and produces volumetric statistics + visualizations
-
----
-
-## ⚙️ Requirements
-
-- 🐍 Python 3.10
-- 🧠 [TotalSegmentator](https://github.com/wasserth/TotalSegmentator) *(requires access token)*
-- 🔁 [FSL (flirt)](https://fsl.fmrib.ox.ac.uk/fsldownloads) for image alignment
-- 🔄 [dcm2niix](https://github.com/rordenlab/dcm2niix) for DICOM to NIfTI conversion:
-
-```bash
-brew install dcm2niix
-```
-
-- 📦 Python dependencies listed in `requirements.txt`
-
----
-
-## 📦 Installation
-
-1. 🧬 Clone this repository:
-
-   ```bash
-   git clone https://github.com/maratNeSlaiv/MindScope.git
-   cd MindScope
-   ```
-
-2. 💡 Install Python dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. 🔧 Install and configure external tools:
-   - 🧠 Install **TotalSegmentator** and obtain your token
-   - 🧭 Install **FSL** to access `flirt`
-   - 🗃️ Install **dcm2niix** for DICOM conversion
-
----
-
-## 🔐 Configuration
-
-Create a `.env` file in the project root directory with your **TotalSegmentator token**:
-
-```env
-TOTALSEGMENTATOR_TOKEN=<your_totalsegmentator_token>
-```
-
----
-
 ## 🚀 Usage
 
-To process your own DICOM CT scans folder:
+### 方式一：Evans Index 分析（已標記資料）
+
+MindScope 提供兩種 Evans Index 分析模式：
+
+#### 1. 全域最大值分析
+在前角範圍內找出腦室和顱骨的全域最大寬度（可來自不同切片）：
 
 ```bash
-python src/pipeline_for_dcm_folder.py --input /absolute/path/to/dicom/folder
+python main.py --mode global_max
 ```
 
-## 🧪 Sample Case
-
-This section demonstrates a sample use case of the pipeline.
-
-### 📥 Download Sample DICOM Case
-
-You can download the sample DICOM folder [here](https://drive.google.com/drive/folders/1XmbWorwfuCjpnybmHxFOpMrm1TaLT1gh?usp=share_link).
-
-### ⚙️ Run Command
-
-Run the main pipeline script with the path to your DICOM folder:
+#### 2. 逐切片分析
+在前角範圍內為每個切片計算 Evans Index：
 
 ```bash
-python src/pipeline_for_dcm_folder.py
+python main.py --mode slice_by_slice
 ```
 
-If you get "ModuleNotFoundError" you can try specifying project root directly with:
-```bash
-export PYTHONPATH=/absolute/path/to/MindScope
-```
-
-After processing completes, open the Jupyter notebook for visualization and detailed analysis:
+#### 進階選項
 
 ```bash
-notebooks/demo_evans_index.ipynb
+# 使用自訂設定檔
+python main.py --mode global_max --config my_config.json
+
+# 覆蓋特定參數
+python main.py --mode global_max --base-path /path/to/data --threshold 0.7
+
+# 不生成可視化截圖
+python main.py --mode slice_by_slice --no-screenshots
+
+# 列出所有可用的資料集
+python main.py --list-datasets
+
+# 儲存目前設定到檔案
+python main.py --save-config config.json
 ```
-You need to specify the "base" parameter with your own path to MindScope/data/generated_token/.
 
----
+#### 設定檔範例
 
-### 📈 Output
+複製 `config.example.json` 並修改參數：
 
-After running all scripts (including demo_evans_index.ipynb), you will find:
-| File / Folder             | Description                                                                         |
-|---------------------------|-------------------------------------------------------------------------------------|
-| `segmentation_*.nii.gz`   | Segmentation masks for brain regions                                                |
-| `statistics.json`         | Volumes and calculated metrics like VBR = Ventricle-to-Brain Ratio, EI = Evans Index|
-| `aligning.mat`            | Alignment rotation angles for pitch correction                                      |
-| `brain_mask_aligned.nii`  | Aligned brain mask                                                                  |
+```json
+{
+  "base_path": "/path/to/your/data",
+  "occupancy_threshold": 0.6,
+  "max_reasonable_width": 200,
+  "output_dir": "result",
+  "screenshot_output_dir": "evans_slices"
+}
+```
 
----
-
-### 🖼️ Screenshots
-
-Below are some example visualizations produced by the pipeline:
-
-![Segmentation Alignment](./images/initial_mask_vs_aligned_mask.png)  
-*Left: original brain mask. Right: aligned brain mask after pitch correction.*
-
-![Evans Index Slice](./images/ventricles_and_brain_max_width.png)  
-*Single axial slice showing segmentation of ventricles (blue) and brain (orange) used for Evans Index calculation.*
 ---
 
 ### 🗂️ Folder Structure
 
 ```
 project-root/
-├── notebooks/
-│   └── demo_evans_index.ipynb
+├── main.py                      # 統一入口點
+├── config.example.json          # 設定檔範例
 ├── src/
-│   └── pipeline_for_dcm_folder.py
-├── data/
-│   └── generated_token/
-│       ├── brain_structures/
-│       │   ├── segmentation_1.nii.gz
-│       │   ├── segmentation_2.nii.gz
-│       │   ├── ...
-│       │   └── statistics.json
-│       ├── ventricles/
-│       │   ├── segmentation_1.nii.gz
-│       │   ├── segmentation_2.nii.gz
-│       │   ├── ...
-│       │   └── statistics.json
-│       ├── aligning.mat
-│       └── etc...
-├── .env  ← specify your TOTALSEGMENTATOR_TOKEN here
+│   ├── config.py               # 設定管理
+│   ├── core/                   # 核心功能
+│   │   ├── measurement.py      # 共用測量邏輯
+│   │   ├── validation.py       # Evans Index 計算與驗證
+│   │   └── logger.py           # 日誌管理
+│   ├── data_io/                # 檔案處理
+│   │   └── data_loader.py      # 資料載入
+│   ├── utils.py                # 向後兼容層
+│   ├── evans_analysis.py       # 逐切片分析
+│   ├── global_max_evans_analysis.py  # 全域最大值分析
+│   ├── slice_by_slice_analysis.py
+│   ├── image_processing.py
+│   ├── visualization.py
+│   └── pipeline_for_dcm_folder.py    # DICOM 處理
+├── result/                     # 分析結果輸出
+│   ├── global_max/            # 全域最大值分析結果
+│   └── slice_by_slice_analysis_results.json
+├── evans_slices/              # 可視化截圖
+└── .env                       # TotalSegmentator token
 ```
 
 ---
 
-You can use this sample case to verify the pipeline setup and output interpretation.
-## TODO
+## 📊 輸出結果
 
-- Add scripts for automated environment setup
-- Expand troubleshooting and configuration instructions
+### 全域最大值分析
+- `result/global_max/global_max_summary.md` - 摘要報告
+- `result/global_max/{case_name}/global_max_data.json` - 每個案例的詳細數據
+- `result/global_max/{case_name}/screenshots/` - 可視化截圖
 
----
+### 逐切片分析
+- `result/slice_by_slice_analysis_results.json` - 完整分析結果
+- `result/slice_by_slice_analysis_report.md` - Markdown 報告
+- `evans_slices/{case_name}.png` - Evans Index 測量截圖

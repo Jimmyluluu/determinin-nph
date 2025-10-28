@@ -1,0 +1,12 @@
+{
+  "base_path": "/Volumes/Kuro醬の1TSSD/標記好的資料",
+  "occupancy_threshold": 0.6,
+  "max_reasonable_width": 200,
+  "output_dir": "result",
+  "screenshot_output_dir": "evans_slices",
+  "frontal_horn_ratio": 0.3333333333333333,
+  "min_ventricle_width": 5,
+  "max_skull_width_threshold": 500,
+  "evans_normal_threshold": 0.25,
+  "evans_borderline_threshold": 0.3
+}

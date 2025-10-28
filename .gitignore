@@ -14,3 +14,4 @@ evans_slices
 __pycache__
 detailed_slices
 global_max
+slice_by_slice
